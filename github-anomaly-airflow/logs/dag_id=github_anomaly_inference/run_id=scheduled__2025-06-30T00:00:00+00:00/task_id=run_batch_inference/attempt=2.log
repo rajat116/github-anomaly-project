@@ -1,0 +1,25 @@
+[2025-07-01T14:31:09.814+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: github_anomaly_inference.run_batch_inference scheduled__2025-06-30T00:00:00+00:00 [queued]>
+[2025-07-01T14:31:09.825+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: github_anomaly_inference.run_batch_inference scheduled__2025-06-30T00:00:00+00:00 [queued]>
+[2025-07-01T14:31:09.826+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-07-01T14:31:09.849+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): run_batch_inference> on 2025-06-30 00:00:00+00:00
+[2025-07-01T14:31:09.856+0000] {standard_task_runner.py:60} INFO - Started process 468 to run task
+[2025-07-01T14:31:09.863+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'github_anomaly_inference', 'run_batch_inference', 'scheduled__2025-06-30T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmpm32p77sj']
+[2025-07-01T14:31:09.865+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask run_batch_inference
+[2025-07-01T14:31:09.897+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-01T14:31:09.998+0000] {task_command.py:423} INFO - Running <TaskInstance: github_anomaly_inference.run_batch_inference scheduled__2025-06-30T00:00:00+00:00 [running]> on host f5f6e352521d
+[2025-07-01T14:31:10.520+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='github_anomaly_inference' AIRFLOW_CTX_TASK_ID='run_batch_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-06-30T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-30T00:00:00+00:00'
+[2025-07-01T14:31:10.522+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/inference_dag.py", line 15, in run_batch_inference
+    with open(model_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'models/isolation_forest.pkl'
+[2025-07-01T14:31:10.535+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=github_anomaly_inference, task_id=run_batch_inference, execution_date=20250630T000000, start_date=20250701T143109, end_date=20250701T143110
+[2025-07-01T14:31:10.544+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task run_batch_inference ([Errno 2] No such file or directory: 'models/isolation_forest.pkl'; 468)
+[2025-07-01T14:31:10.570+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-01T14:31:10.584+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

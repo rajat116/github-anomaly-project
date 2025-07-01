@@ -1,0 +1,6 @@
+artifact_location: file:///workspaces/github-anomaly-project/mlruns/323680922815141296
+creation_time: 1751374034732
+experiment_id: '323680922815141296'
+last_update_time: 1751374034732
+lifecycle_stage: active
+name: anomaly_detection_github

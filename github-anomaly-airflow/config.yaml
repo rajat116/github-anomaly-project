@@ -1,0 +1,6 @@
+model_path: models/isolation_forest.pkl
+feature_dir: data/features/
+prediction_dir: data/predictions/
+retrain_frequency: 7
+anomaly_threshold: 0.75
+drift_threshold: 0.2

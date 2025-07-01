@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/github-anomaly-project/mlruns/323680922815141296/25792aac77c4487b9a2063d2b6f3c444/artifacts
+end_time: 1751374035152
+entry_point_name: ''
+experiment_id: '323680922815141296'
+lifecycle_stage: active
+run_id: 25792aac77c4487b9a2063d2b6f3c444
+run_name: nervous-goat-638
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751374034768
+status: 3
+tags: []
+user_id: codespace

@@ -1,0 +1,392 @@
+[2025-07-01T14:18:53.416+0000] {processor.py:161} INFO - Started process (PID=159) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:18:53.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:18:53.418+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:18:53.418+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:18:57.042+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:18:57.040+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:18:57.042+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:18:57.088+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 3.683 seconds
+[2025-07-01T14:19:27.297+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:27.298+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:19:27.299+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:19:27.299+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:27.567+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:19:27.565+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:19:27.568+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:27.592+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.299 seconds
+[2025-07-01T14:19:57.821+0000] {processor.py:161} INFO - Started process (PID=184) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:57.825+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:19:57.826+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:19:57.826+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:58.093+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:19:58.091+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:19:58.093+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:19:58.110+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.297 seconds
+[2025-07-01T14:20:28.281+0000] {processor.py:161} INFO - Started process (PID=196) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:28.282+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:20:28.283+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:20:28.283+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:28.548+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:20:28.547+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:20:28.548+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:28.568+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.289 seconds
+[2025-07-01T14:20:58.721+0000] {processor.py:161} INFO - Started process (PID=208) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:58.722+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:20:58.723+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:20:58.723+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:59.017+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:20:59.015+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:20:59.017+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:20:59.036+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.318 seconds
+[2025-07-01T14:21:29.188+0000] {processor.py:161} INFO - Started process (PID=220) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:29.189+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:21:29.190+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:21:29.190+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:29.451+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:21:29.450+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:21:29.452+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:29.469+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.284 seconds
+[2025-07-01T14:21:59.635+0000] {processor.py:161} INFO - Started process (PID=232) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:59.636+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:21:59.637+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:21:59.637+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:59.934+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:21:59.931+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:21:59.935+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:21:59.960+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.328 seconds
+[2025-07-01T14:22:30.125+0000] {processor.py:161} INFO - Started process (PID=244) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:22:30.126+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:22:30.127+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:22:30.126+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:22:30.421+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:22:30.420+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:22:30.422+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:22:30.439+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.320 seconds
+[2025-07-01T14:23:00.590+0000] {processor.py:161} INFO - Started process (PID=256) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:00.591+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:23:00.592+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:23:00.592+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:00.866+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:23:00.865+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:23:00.867+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:00.886+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.299 seconds
+[2025-07-01T14:23:31.039+0000] {processor.py:161} INFO - Started process (PID=268) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:31.040+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:23:31.041+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:23:31.040+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:31.298+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:23:31.296+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:23:31.298+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:23:31.316+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.281 seconds
+[2025-07-01T14:24:01.474+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:01.475+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:24:01.476+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:24:01.476+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:01.763+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:24:01.761+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:24:01.763+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:01.779+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.308 seconds
+[2025-07-01T14:24:31.930+0000] {processor.py:161} INFO - Started process (PID=292) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:31.931+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:24:31.932+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:24:31.931+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:32.187+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:24:32.185+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:24:32.187+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:24:32.206+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.279 seconds
+[2025-07-01T14:25:02.347+0000] {processor.py:161} INFO - Started process (PID=304) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:02.348+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:25:02.349+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:25:02.349+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:02.551+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:25:02.549+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:25:02.551+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:02.565+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.221 seconds
+[2025-07-01T14:25:32.702+0000] {processor.py:161} INFO - Started process (PID=316) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:32.703+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:25:32.703+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:25:32.703+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:32.909+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:25:32.908+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:25:32.909+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:25:32.923+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.224 seconds
+[2025-07-01T14:26:03.057+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:03.058+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:26:03.059+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:26:03.058+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:03.266+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:26:03.265+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:26:03.266+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:03.281+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.226 seconds
+[2025-07-01T14:26:33.429+0000] {processor.py:161} INFO - Started process (PID=346) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:33.429+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:26:33.430+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:26:33.430+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:33.627+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:26:33.626+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:26:33.628+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:26:33.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.215 seconds
+[2025-07-01T14:27:03.768+0000] {processor.py:161} INFO - Started process (PID=358) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:03.769+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:27:03.770+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:27:03.769+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:03.975+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:27:03.974+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:27:03.975+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:03.988+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.223 seconds
+[2025-07-01T14:27:34.115+0000] {processor.py:161} INFO - Started process (PID=370) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:34.115+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:27:34.116+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:27:34.116+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:34.309+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:27:34.308+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:27:34.309+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:27:34.323+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.211 seconds
+[2025-07-01T14:28:04.444+0000] {processor.py:161} INFO - Started process (PID=382) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:04.445+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:28:04.446+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:28:04.445+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:04.655+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:28:04.654+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:28:04.655+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:04.669+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.227 seconds
+[2025-07-01T14:28:34.789+0000] {processor.py:161} INFO - Started process (PID=394) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:34.790+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:28:34.791+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:28:34.790+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:35.003+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:28:35.002+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:28:35.004+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:28:35.018+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.231 seconds
+[2025-07-01T14:29:05.152+0000] {processor.py:161} INFO - Started process (PID=406) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:05.152+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:29:05.153+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:29:05.153+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:05.347+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:29:05.346+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:29:05.348+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:05.362+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.212 seconds
+[2025-07-01T14:29:35.487+0000] {processor.py:161} INFO - Started process (PID=418) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:35.488+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:29:35.488+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:29:35.488+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:35.692+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:29:35.691+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:29:35.693+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:29:35.708+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.224 seconds
+[2025-07-01T14:30:05.843+0000] {processor.py:161} INFO - Started process (PID=430) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:05.844+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:30:05.844+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:30:05.844+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:06.075+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:30:06.074+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:30:06.076+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:06.091+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.251 seconds
+[2025-07-01T14:30:36.258+0000] {processor.py:161} INFO - Started process (PID=442) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:36.267+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:30:36.268+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:30:36.267+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:36.479+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:30:36.478+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:30:36.480+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:30:36.493+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.243 seconds
+[2025-07-01T14:31:06.638+0000] {processor.py:161} INFO - Started process (PID=454) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:06.638+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:31:06.639+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:31:06.639+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:06.835+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:31:06.834+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:31:06.835+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:06.849+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.213 seconds
+[2025-07-01T14:31:36.980+0000] {processor.py:161} INFO - Started process (PID=472) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:36.981+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:31:36.981+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:31:36.981+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:37.299+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:31:37.298+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:31:37.300+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:31:37.318+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.341 seconds
+[2025-07-01T14:32:07.347+0000] {processor.py:161} INFO - Started process (PID=484) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:07.348+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:32:07.348+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:32:07.348+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:07.542+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:32:07.541+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:32:07.542+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:07.556+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.212 seconds
+[2025-07-01T14:32:37.685+0000] {processor.py:161} INFO - Started process (PID=496) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:37.686+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-01T14:32:37.687+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:32:37.686+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:37.894+0000] {logging_mixin.py:188} INFO - [2025-07-01T14:32:37.893+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/retraining_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/retraining_dag.py", line 6, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-01T14:32:37.895+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-01T14:32:37.908+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 0.225 seconds
