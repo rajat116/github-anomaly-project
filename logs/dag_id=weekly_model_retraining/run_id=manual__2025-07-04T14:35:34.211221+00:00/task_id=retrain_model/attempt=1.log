@@ -1,0 +1,42 @@
+[2025-07-04T14:35:40.845+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T14:35:40.949+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-04T14:35:34.211221+00:00 [queued]>
+[2025-07-04T14:35:40.970+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-04T14:35:34.211221+00:00 [queued]>
+[2025-07-04T14:35:40.970+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T14:35:41.010+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-07-04 14:35:34.211221+00:00
+[2025-07-04T14:35:41.065+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=212) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T14:35:41.076+0000] {standard_task_runner.py:63} INFO - Started process 217 to run task
+[2025-07-04T14:35:41.063+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'manual__2025-07-04T14:35:34.211221+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmpt751_2on']
+[2025-07-04T14:35:41.081+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask retrain_model
+[2025-07-04T14:35:41.130+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T14:35:41.240+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-04T14:35:34.211221+00:00 [running]> on host a4cd470c7ef1
+[2025-07-04T14:35:41.632+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-07-04T14:35:34.211221+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-04T14:35:34.211221+00:00'
+[2025-07-04T14:35:41.637+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T14:35:41.766+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-04T14:35:41.774+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T14:35:41.775+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/train_model.py", line 77, in main
+    run_training(timestamp)
+  File "/opt/airflow/github_pipeline/train_model.py", line 25, in run_training
+    raise FileNotFoundError(f"[ERROR] Input file not found: {input_file}")
+FileNotFoundError: [ERROR] Input file not found: data/features/actor_features_2025-07-04-13.parquet
+[2025-07-04T14:35:41.830+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=manual__2025-07-04T14:35:34.211221+00:00, execution_date=20250704T143534, start_date=20250704T143540, end_date=20250704T143541
+[2025-07-04T14:35:41.898+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task retrain_model ([ERROR] Input file not found: data/features/actor_features_2025-07-04-13.parquet; 217)
+[2025-07-04T14:35:42.001+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T14:35:42.132+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T14:35:42.140+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

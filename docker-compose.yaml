@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+
+  airflow-webserver:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE: UTC
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      PYTHONPATH: /opt/airflow:/opt/airflow/github_pipeline:/opt/airflow/alerts
+    env_file:  
+      - .env
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./github_pipeline:/opt/airflow/github_pipeline
+      - ./alerts:/opt/airflow/alerts
+      - ./reports:/opt/airflow/reports
+      - ./data:/opt/airflow/data
+      - ./models:/opt/airflow/models
+      - ./logs:/opt/airflow/logs
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "
+        airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com &&
+        airflow webserver"
+
+  airflow-scheduler:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      PYTHONPATH: /opt/airflow:/opt/airflow/github_pipeline:/opt/airflow/alerts
+    env_file:
+      - .env
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./github_pipeline:/opt/airflow/github_pipeline
+      - ./alerts:/opt/airflow/alerts
+      - ./reports:/opt/airflow/reports
+      - ./data:/opt/airflow/data
+      - ./models:/opt/airflow/models
+      - ./logs:/opt/airflow/logs
+    command: airflow scheduler
+
+volumes:
+  postgres-db-volume:

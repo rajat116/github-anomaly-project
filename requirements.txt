@@ -1,0 +1,12 @@
+pandas
+numpy==1.26.4
+scikit-learn
+joblib
+pyarrow
+matplotlib
+seaborn
+mlflow
+evidently==0.7.9
+slack_sdk
+yagmail
+oauth2client  # if Gmail uses OAuth

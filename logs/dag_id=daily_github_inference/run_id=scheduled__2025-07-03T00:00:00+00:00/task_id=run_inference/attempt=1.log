@@ -1,0 +1,261 @@
+[2025-07-04T11:37:20.422+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T11:37:20.460+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T11:37:20.469+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T11:37:20.469+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T11:37:20.483+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T11:37:20.494+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=182) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T11:37:20.495+0000] {standard_task_runner.py:63} INFO - Started process 184 to run task
+[2025-07-04T11:37:20.498+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmpu_h41_wo']
+[2025-07-04T11:37:20.502+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_inference
+[2025-07-04T11:37:20.524+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T11:37:20.565+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host 575da08c5502
+[2025-07-04T11:37:20.679+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T11:37:20.679+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T11:37:22.937+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T11:37:22.937+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/inference.py", line 5, in run_inference
+    import joblib
+ModuleNotFoundError: No module named 'joblib'
+[2025-07-04T11:37:22.948+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T113720, end_date=20250704T113722
+[2025-07-04T11:37:22.963+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task run_inference (No module named 'joblib'; 184)
+[2025-07-04T11:37:22.989+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T11:37:23.008+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T11:37:23.009+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T11:54:20.754+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T11:54:20.826+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T11:54:20.846+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T11:54:20.846+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T11:54:20.890+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T11:54:20.923+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=169) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T11:54:20.927+0000] {standard_task_runner.py:63} INFO - Started process 171 to run task
+[2025-07-04T11:54:20.928+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmps4sxb7if']
+[2025-07-04T11:54:20.932+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_inference
+[2025-07-04T11:54:20.990+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T11:54:21.166+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host 199d7a58df9c
+[2025-07-04T11:54:21.508+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T11:54:21.509+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T11:54:23.807+0000] {logging_mixin.py:188} INFO - [INFO] Running inference...
+[2025-07-04T11:54:23.811+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T11:54:23.812+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/inference.py", line 11, in run_inference
+    model = joblib.load("models/isolation_forest.pkl")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/pickle.py", line 1205, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.12/pickle.py", line 1530, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/pickle.py", line 1572, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'sklearn'
+[2025-07-04T11:54:23.827+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T115420, end_date=20250704T115423
+[2025-07-04T11:54:23.852+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task run_inference (No module named 'sklearn'; 171)
+[2025-07-04T11:54:23.881+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T11:54:23.900+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T11:54:23.901+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T12:01:27.921+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T12:01:28.012+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T12:01:28.057+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T12:01:28.058+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T12:01:28.116+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T12:01:28.128+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmpuxrcr4p6']
+[2025-07-04T12:01:28.130+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_inference
+[2025-07-04T12:01:28.134+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=167) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T12:01:28.134+0000] {standard_task_runner.py:63} INFO - Started process 170 to run task
+[2025-07-04T12:01:28.157+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T12:01:28.239+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host 002db3febef3
+[2025-07-04T12:01:28.337+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T12:01:28.338+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T12:01:30.555+0000] {logging_mixin.py:188} INFO - [INFO] Running inference...
+[2025-07-04T12:01:32.184+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T12:01:32.185+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/inference.py", line 19, in run_inference
+    preds = model.predict(df)
+            ^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'predict'
+[2025-07-04T12:01:32.197+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T120128, end_date=20250704T120132
+[2025-07-04T12:01:32.211+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task run_inference ('tuple' object has no attribute 'predict'; 170)
+[2025-07-04T12:01:32.278+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T12:01:32.296+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T12:01:32.297+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T12:08:33.418+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T12:08:33.532+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T12:08:33.556+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T12:08:33.556+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T12:08:33.655+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T12:08:33.700+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=168) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T12:08:33.702+0000] {standard_task_runner.py:63} INFO - Started process 170 to run task
+[2025-07-04T12:08:33.694+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmplsjg_cx0']
+[2025-07-04T12:08:33.707+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask run_inference
+[2025-07-04T12:08:33.789+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T12:08:33.879+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host 4be506410e95
+[2025-07-04T12:08:34.101+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T12:08:34.105+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T12:08:36.775+0000] {logging_mixin.py:188} INFO - [INFO] Running inference...
+[2025-07-04T12:08:38.984+0000] {logging_mixin.py:188} INFO - [INFO] Written predictions to data/features/actor_predictions_2024-01-01-15.parquet
+[2025-07-04T12:08:38.985+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T12:08:38.985+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T12:08:38.996+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T120833, end_date=20250704T120838
+[2025-07-04T12:08:39.086+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T12:08:39.106+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T12:08:39.107+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T14:35:30.077+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T14:35:30.116+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T14:35:30.126+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T14:35:30.127+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T14:35:30.141+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T14:35:30.155+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=199) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T14:35:30.156+0000] {standard_task_runner.py:63} INFO - Started process 203 to run task
+[2025-07-04T14:35:30.154+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmpdonm5u70']
+[2025-07-04T14:35:30.159+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask run_inference
+[2025-07-04T14:35:30.177+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T14:35:30.220+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host a4cd470c7ef1
+[2025-07-04T14:35:30.593+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T14:35:30.595+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T14:35:30.740+0000] {logging_mixin.py:188} INFO - [INFO] Running inference for timestamp: 2025-07-03-15
+[2025-07-04T14:35:30.741+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T14:35:30.741+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/inference_dag.py", line 13, in run_daily_inference
+    run_inference(timestamp=timestamp)
+  File "/opt/airflow/github_pipeline/inference.py", line 16, in run_inference
+    raise FileNotFoundError(f"[ERROR] Input file {input_file} not found.")
+FileNotFoundError: [ERROR] Input file data/features/actor_features_2025-07-03-15.parquet not found.
+[2025-07-04T14:35:30.754+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T143530, end_date=20250704T143530
+[2025-07-04T14:35:30.769+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task run_inference ([ERROR] Input file data/features/actor_features_2025-07-03-15.parquet not found.; 203)
+[2025-07-04T14:35:30.818+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T14:35:30.836+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T14:35:30.838+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T14:45:38.047+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T14:45:38.173+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T14:45:38.191+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T14:45:38.192+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T14:45:38.233+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T14:45:38.251+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=264) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T14:45:38.252+0000] {standard_task_runner.py:63} INFO - Started process 268 to run task
+[2025-07-04T14:45:38.253+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmpm_fl_obx']
+[2025-07-04T14:45:38.255+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask run_inference
+[2025-07-04T14:45:38.271+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T14:45:38.319+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host e8e8a486d025
+[2025-07-04T14:45:38.917+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T14:45:38.920+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T14:45:39.168+0000] {logging_mixin.py:188} INFO - [INFO] Running inference for timestamp: 2025-07-03-15
+[2025-07-04T14:45:39.169+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T14:45:39.169+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/inference_dag.py", line 13, in run_daily_inference
+    run_inference(timestamp=timestamp)
+  File "/opt/airflow/github_pipeline/inference.py", line 16, in run_inference
+    raise FileNotFoundError(f"[ERROR] Input file {input_file} not found.")
+FileNotFoundError: [ERROR] Input file data/features/actor_features_2025-07-03-15.parquet not found.
+[2025-07-04T14:45:39.232+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T144538, end_date=20250704T144539
+[2025-07-04T14:45:39.283+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task run_inference ([ERROR] Input file data/features/actor_features_2025-07-03-15.parquet not found.; 268)
+[2025-07-04T14:45:39.341+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T14:45:39.370+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T14:45:39.377+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T15:50:03.016+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T15:50:03.051+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T15:50:03.059+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [queued]>
+[2025-07-04T15:50:03.059+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T15:50:03.073+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_inference> on 2025-07-03 00:00:00+00:00
+[2025-07-04T15:50:03.084+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=199) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T15:50:03.086+0000] {standard_task_runner.py:63} INFO - Started process 202 to run task
+[2025-07-04T15:50:03.088+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_inference', 'scheduled__2025-07-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/inference_dag.py', '--cfg-path', '/tmp/tmp338wn6me']
+[2025-07-04T15:50:03.090+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask run_inference
+[2025-07-04T15:50:03.107+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T15:50:03.152+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_inference scheduled__2025-07-03T00:00:00+00:00 [running]> on host feb6e6e9f62a
+[2025-07-04T15:50:03.448+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-03T00:00:00+00:00'
+[2025-07-04T15:50:03.451+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T15:50:03.541+0000] {logging_mixin.py:188} INFO - [INFO] Running daily inference on: 2024-01-01-16
+[2025-07-04T15:50:03.541+0000] {logging_mixin.py:188} INFO - [INFO] Running inference for timestamp: 2024-01-01-16
+[2025-07-04T15:50:04.894+0000] {logging_mixin.py:188} INFO - [INFO] Inference complete. Output saved to data/features/actor_predictions_2024-01-01-16.parquet
+[2025-07-04T15:50:04.895+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T15:50:04.895+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T15:50:04.905+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_github_inference, task_id=run_inference, run_id=scheduled__2025-07-03T00:00:00+00:00, execution_date=20250703T000000, start_date=20250704T155003, end_date=20250704T155004
+[2025-07-04T15:50:04.956+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T15:50:04.973+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T15:50:04.974+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

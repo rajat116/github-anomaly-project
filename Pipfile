@@ -5,11 +5,11 @@ name = "pypi"
 
 [packages]
 pandas = "*"
-numpy = "*"
 scikit-learn = "*"
 matplotlib = "*"
 seaborn = "*"
 mlflow = "*"
+evidently = "==0.7.9"
 
 [dev-packages]
 

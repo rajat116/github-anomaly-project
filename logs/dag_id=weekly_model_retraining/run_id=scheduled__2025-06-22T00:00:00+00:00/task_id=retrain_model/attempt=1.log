@@ -1,0 +1,220 @@
+[2025-07-04T12:35:44.981+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T12:35:45.018+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T12:35:45.026+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T12:35:45.027+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T12:35:45.041+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-06-22 00:00:00+00:00
+[2025-07-04T12:35:45.053+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T12:35:45.055+0000] {standard_task_runner.py:63} INFO - Started process 511 to run task
+[2025-07-04T12:35:45.059+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'scheduled__2025-06-22T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmp4mcb2ikn']
+[2025-07-04T12:35:45.063+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask retrain_model
+[2025-07-04T12:35:45.080+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T12:35:45.122+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [running]> on host 4be506410e95
+[2025-07-04T12:35:45.233+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T00:00:00+00:00'
+[2025-07-04T12:35:45.234+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T12:35:45.255+0000] {logging_mixin.py:188} INFO - [INFO] Starting model retraining...
+[2025-07-04T12:35:45.386+0000] {logging_mixin.py:188} WARNING - 2025/07/04 12:35:45 INFO mlflow.tracking.fluent: Experiment with name 'anomaly_detection_github' does not exist. Creating a new experiment.
+[2025-07-04T12:35:45.462+0000] {logging_mixin.py:188} WARNING - 2025/07/04 12:35:45 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-04T12:35:45.946+0000] {logging_mixin.py:188} INFO -          actor  anomaly_score  anomaly
+0  000000armor       0.247586    False
+1       000hen       0.254239    False
+2        00mjk       0.163571    False
+3    01-Deepak       0.247586    False
+4  01000110010       0.254239    False
+[2025-07-04T12:35:45.975+0000] {logging_mixin.py:188} INFO - [INFO] Retraining completed successfully.
+[2025-07-04T12:35:45.976+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T12:35:45.976+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T12:35:45.983+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=scheduled__2025-06-22T00:00:00+00:00, execution_date=20250622T000000, start_date=20250704T123545, end_date=20250704T123545
+[2025-07-04T12:35:46.035+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T12:35:46.047+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T12:35:46.048+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T14:35:41.245+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T14:35:41.367+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T14:35:41.386+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T14:35:41.387+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T14:35:41.421+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-06-22 00:00:00+00:00
+[2025-07-04T14:35:41.472+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=211) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T14:35:41.476+0000] {standard_task_runner.py:63} INFO - Started process 218 to run task
+[2025-07-04T14:35:41.464+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'scheduled__2025-06-22T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmpjagrg2ul']
+[2025-07-04T14:35:41.480+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask retrain_model
+[2025-07-04T14:35:41.512+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T14:35:41.641+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [running]> on host a4cd470c7ef1
+[2025-07-04T14:35:42.070+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T00:00:00+00:00'
+[2025-07-04T14:35:42.075+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T14:35:42.231+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-04T14:35:42.239+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T14:35:42.244+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/train_model.py", line 77, in main
+    run_training(timestamp)
+  File "/opt/airflow/github_pipeline/train_model.py", line 25, in run_training
+    raise FileNotFoundError(f"[ERROR] Input file not found: {input_file}")
+FileNotFoundError: [ERROR] Input file not found: data/features/actor_features_2025-07-04-13.parquet
+[2025-07-04T14:35:42.290+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=scheduled__2025-06-22T00:00:00+00:00, execution_date=20250622T000000, start_date=20250704T143541, end_date=20250704T143542
+[2025-07-04T14:35:42.390+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task retrain_model ([ERROR] Input file not found: data/features/actor_features_2025-07-04-13.parquet; 218)
+[2025-07-04T14:35:42.491+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-04T14:35:42.535+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T14:45:53.161+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T14:45:53.341+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T14:45:53.362+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T14:45:53.362+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T14:45:53.393+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-06-22 00:00:00+00:00
+[2025-07-04T14:45:53.418+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T14:45:53.425+0000] {standard_task_runner.py:63} INFO - Started process 295 to run task
+[2025-07-04T14:45:53.416+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'scheduled__2025-06-22T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmpopu89peu']
+[2025-07-04T14:45:53.427+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask retrain_model
+[2025-07-04T14:45:53.452+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T14:45:53.528+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [running]> on host e8e8a486d025
+[2025-07-04T14:45:53.678+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T00:00:00+00:00'
+[2025-07-04T14:45:53.681+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T14:45:53.717+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2024-01-01-16
+[2025-07-04T14:45:53.719+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-04T14:45:54.029+0000] {logging_mixin.py:188} WARNING - 2025/07/04 14:45:54 INFO mlflow.tracking.fluent: Experiment with name 'anomaly_detection_github' does not exist. Creating a new experiment.
+[2025-07-04T14:45:54.170+0000] {logging_mixin.py:188} WARNING - 2025/07/04 14:45:54 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-04T14:45:55.380+0000] {logging_mixin.py:188} INFO -        actor  anomaly_score  anomaly
+0    00000o1       0.208115    False
+1     00b7ce       0.246393    False
+2  01-Deepak       0.246393    False
+3      0130w       0.221535    False
+4    01anuja       0.236908    False
+[2025-07-04T14:45:55.385+0000] {logging_mixin.py:188} INFO - [INFO] Training completed successfully.
+[2025-07-04T14:45:55.388+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T14:45:55.388+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T14:45:55.405+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=scheduled__2025-06-22T00:00:00+00:00, execution_date=20250622T000000, start_date=20250704T144553, end_date=20250704T144555
+[2025-07-04T14:45:55.466+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T14:45:55.491+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T14:45:55.494+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T15:50:37.163+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T15:50:37.206+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T15:50:37.240+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T15:50:37.241+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T15:50:37.277+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-06-22 00:00:00+00:00
+[2025-07-04T15:50:37.294+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=250) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T15:50:37.295+0000] {standard_task_runner.py:63} INFO - Started process 257 to run task
+[2025-07-04T15:50:37.292+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'scheduled__2025-06-22T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmp65x08z5z']
+[2025-07-04T15:50:37.297+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask retrain_model
+[2025-07-04T15:50:37.313+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T15:50:37.351+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [running]> on host feb6e6e9f62a
+[2025-07-04T15:50:37.447+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T00:00:00+00:00'
+[2025-07-04T15:50:37.449+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T15:50:37.472+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2024-01-01-16
+[2025-07-04T15:50:37.473+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-04T15:50:37.561+0000] {logging_mixin.py:188} WARNING - 2025/07/04 15:50:37 INFO mlflow.tracking.fluent: Experiment with name 'anomaly_detection_github' does not exist. Creating a new experiment.
+[2025-07-04T15:50:37.625+0000] {logging_mixin.py:188} WARNING - 2025/07/04 15:50:37 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-04T15:50:38.363+0000] {logging_mixin.py:188} INFO -        actor  anomaly_score  anomaly
+0    00000o1       0.208115    False
+1     00b7ce       0.246393    False
+2  01-Deepak       0.246393    False
+3      0130w       0.221535    False
+4    01anuja       0.236908    False
+[2025-07-04T15:50:38.366+0000] {logging_mixin.py:188} INFO - [INFO] Training completed successfully.
+[2025-07-04T15:50:38.367+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T15:50:38.367+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T15:50:38.385+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=scheduled__2025-06-22T00:00:00+00:00, execution_date=20250622T000000, start_date=20250704T155037, end_date=20250704T155038
+[2025-07-04T15:50:38.437+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T15:50:38.452+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T15:50:38.453+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-04T17:49:21.691+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-04T17:49:21.756+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T17:49:21.773+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [queued]>
+[2025-07-04T17:49:21.773+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-04T17:49:21.801+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-06-22 00:00:00+00:00
+[2025-07-04T17:49:21.826+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=502) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-04T17:49:21.829+0000] {standard_task_runner.py:63} INFO - Started process 511 to run task
+[2025-07-04T17:49:21.842+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'scheduled__2025-06-22T00:00:00+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmpxcvm02w2']
+[2025-07-04T17:49:21.862+0000] {standard_task_runner.py:91} INFO - Job 32: Subtask retrain_model
+[2025-07-04T17:49:21.899+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-04T17:49:21.942+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model scheduled__2025-06-22T00:00:00+00:00 [running]> on host 1f9ae480a8ef
+[2025-07-04T17:49:22.181+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T00:00:00+00:00'
+[2025-07-04T17:49:22.182+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-04T17:49:22.198+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2025-07-03-15
+[2025-07-04T17:49:22.199+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-04T17:49:22.329+0000] {logging_mixin.py:188} WARNING - 2025/07/04 17:49:22 INFO mlflow.tracking.fluent: Experiment with name 'anomaly_detection_github' does not exist. Creating a new experiment.
+[2025-07-04T17:49:22.528+0000] {logging_mixin.py:188} WARNING - 2025/07/04 17:49:22 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-04T17:49:24.010+0000] {logging_mixin.py:188} INFO -          actor  anomaly_score  anomaly
+0   0-kodiya-0       0.285104    False
+1  00-10-01-11       0.285104    False
+2   001ryu-ryu       0.268308    False
+3       0047ol       0.156115    False
+4      004Ajay       0.285104    False
+[2025-07-04T17:49:24.015+0000] {logging_mixin.py:188} INFO - [INFO] Training completed successfully.
+[2025-07-04T17:49:24.019+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-04T17:49:24.020+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-04T17:49:24.043+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=scheduled__2025-06-22T00:00:00+00:00, execution_date=20250622T000000, start_date=20250704T174921, end_date=20250704T174924
+[2025-07-04T17:49:24.110+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-04T17:49:24.131+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-04T17:49:24.134+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

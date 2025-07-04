@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/github-anomaly-project/mlruns/323680922815141296/61ad32887036448684d0b7e22efe29cf/artifacts
+end_time: 1751645229238
+entry_point_name: ''
+experiment_id: '323680922815141296'
+lifecycle_stage: active
+run_id: 61ad32887036448684d0b7e22efe29cf
+run_name: intrigued-wren-894
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751645228833
+status: 3
+tags: []
+user_id: codespace

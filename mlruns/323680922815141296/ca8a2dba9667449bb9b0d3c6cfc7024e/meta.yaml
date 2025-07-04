@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/github-anomaly-project/mlruns/323680922815141296/ca8a2dba9667449bb9b0d3c6cfc7024e/artifacts
+end_time: 1751637420402
+entry_point_name: ''
+experiment_id: '323680922815141296'
+lifecycle_stage: active
+run_id: ca8a2dba9667449bb9b0d3c6cfc7024e
+run_name: masked-snipe-684
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751637420017
+status: 3
+tags: []
+user_id: codespace
