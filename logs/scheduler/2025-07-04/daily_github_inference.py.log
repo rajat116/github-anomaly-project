@@ -1565,3 +1565,24 @@ ModuleNotFoundError: No module named 'scripts.feature_engineering'
 [2025-07-04T18:55:46.148+0000] {logging_mixin.py:188} INFO - [2025-07-04T18:55:46.148+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-07-04T18:55:46.164+0000] {logging_mixin.py:188} INFO - [2025-07-04T18:55:46.164+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_github_inference to 2025-07-04 00:00:00+00:00, run_after=2025-07-05 00:00:00+00:00
 [2025-07-04T18:55:46.177+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_github_inference.py took 0.314 seconds
+[2025-07-04T20:15:39.407+0000] {processor.py:161} INFO - Started process (PID=156) to work on /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:15:39.427+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_github_inference.py for tasks to queue
+[2025-07-04T20:15:39.432+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:39.432+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:15:42.000+0000] {processor.py:840} INFO - DAG(s) 'daily_github_inference' retrieved from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:15:42.134+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:42.132+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:15:42.173+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:42.172+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_github_inference to 2025-07-04 00:00:00+00:00, run_after=2025-07-05 00:00:00+00:00
+[2025-07-04T20:15:42.206+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_github_inference.py took 2.827 seconds
+[2025-07-04T20:16:12.242+0000] {processor.py:161} INFO - Started process (PID=177) to work on /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:12.245+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_github_inference.py for tasks to queue
+[2025-07-04T20:16:12.246+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:12.246+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:12.640+0000] {processor.py:840} INFO - DAG(s) 'daily_github_inference' retrieved from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:12.652+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:12.652+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:16:12.678+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:12.677+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_github_inference to 2025-07-04 00:00:00+00:00, run_after=2025-07-05 00:00:00+00:00
+[2025-07-04T20:16:12.694+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_github_inference.py took 0.457 seconds
+[2025-07-04T20:16:43.543+0000] {processor.py:161} INFO - Started process (PID=204) to work on /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:43.543+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_github_inference.py for tasks to queue
+[2025-07-04T20:16:43.545+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:43.544+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:43.816+0000] {processor.py:840} INFO - DAG(s) 'daily_github_inference' retrieved from /opt/airflow/dags/daily_github_inference.py
+[2025-07-04T20:16:44.053+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:44.052+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:16:44.074+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:44.074+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_github_inference to 2025-07-04 00:00:00+00:00, run_after=2025-07-05 00:00:00+00:00
+[2025-07-04T20:16:44.091+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_github_inference.py took 0.553 seconds

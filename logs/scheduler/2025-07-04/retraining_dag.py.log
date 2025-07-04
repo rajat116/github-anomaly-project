@@ -3028,3 +3028,24 @@ ImportError: cannot import name 'main' from 'train_model' (/opt/airflow/github_p
 [2025-07-04T18:55:55.417+0000] {logging_mixin.py:188} INFO - [2025-07-04T18:55:55.417+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-07-04T18:55:55.433+0000] {logging_mixin.py:188} INFO - [2025-07-04T18:55:55.433+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
 [2025-07-04T18:55:55.445+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 1.416 seconds
+[2025-07-04T20:15:42.253+0000] {processor.py:161} INFO - Started process (PID=167) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:15:42.260+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-04T20:15:42.265+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:42.263+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:15:46.983+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:15:47.027+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:47.026+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:15:47.077+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:15:47.077+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-04T20:15:47.110+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 4.865 seconds
+[2025-07-04T20:16:17.681+0000] {processor.py:161} INFO - Started process (PID=183) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:17.686+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-04T20:16:17.689+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:17.688+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:19.599+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:20.377+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:20.376+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:16:20.402+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:20.402+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-04T20:16:20.418+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 2.747 seconds
+[2025-07-04T20:16:50.744+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:50.745+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-04T20:16:50.746+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:50.746+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:52.201+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-04T20:16:52.218+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:52.217+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-04T20:16:52.237+0000] {logging_mixin.py:188} INFO - [2025-07-04T20:16:52.237+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-04T20:16:52.249+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 1.509 seconds

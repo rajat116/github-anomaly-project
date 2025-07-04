@@ -87,8 +87,8 @@ def run_monitoring(reference_ts: str, current_ts: str):
                 send_email_alert("Anomaly Alert", msg)
 
     # TEMPORARY MANUAL ALERT TEST (remove after confirming)
-    #send_slack_alert("✅ Test: Slack alert works!")
-    #send_email_alert("✅ Test Email Alert", "This is a test alert to confirm email configuration.")
+    send_slack_alert("✅ Test: Slack alert works!")
+    send_email_alert("✅ Test Email Alert", "This is a test alert to confirm email configuration.")
 
 def main():
     # === Find All Timestamps ===
