@@ -34,3 +34,17 @@ jobs:
 
       - name: Run Pytest
         run: pipenv run pytest
+
+  build-docker:
+    runs-on: ubuntu-latest
+    name: Build Docker Image for serve_model.py
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -f Dockerfile.inference -t github-anomaly-inference .
