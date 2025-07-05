@@ -14,6 +14,7 @@ fastapi = "*"
 uvicorn = "*"
 joblib = "*"
 numpy = "*"
+streamlit = "*"
 
 [dev-packages]
 black = "*"

@@ -1,0 +1,24 @@
+[2025-07-05T16:58:53.695+0000] {processor.py:161} INFO - Started process (PID=160) to work on /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:58:53.696+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_monitoring_dag.py for tasks to queue
+[2025-07-05T16:58:53.698+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:58:53.697+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:59:15.466+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/evidently/core/metric_types.py:376 FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+[2025-07-05T16:59:17.109+0000] {processor.py:840} INFO - DAG(s) 'daily_monitoring_dag' retrieved from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:59:17.158+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:17.157+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T16:59:17.213+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:17.213+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_monitoring_dag to 2025-07-05 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T16:59:17.254+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_monitoring_dag.py took 23.566 seconds
+[2025-07-05T16:59:47.484+0000] {processor.py:161} INFO - Started process (PID=223) to work on /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:59:47.485+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_monitoring_dag.py for tasks to queue
+[2025-07-05T16:59:47.486+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:47.486+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:59:50.413+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/evidently/core/metric_types.py:376 FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+[2025-07-05T16:59:50.658+0000] {processor.py:840} INFO - DAG(s) 'daily_monitoring_dag' retrieved from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T16:59:50.733+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:50.733+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T16:59:50.750+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:50.749+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_monitoring_dag to 2025-07-05 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T16:59:50.763+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_monitoring_dag.py took 3.285 seconds
+[2025-07-05T17:00:20.982+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T17:00:20.983+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/daily_monitoring_dag.py for tasks to queue
+[2025-07-05T17:00:20.985+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:20.984+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T17:00:23.952+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/evidently/core/metric_types.py:376 FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+[2025-07-05T17:00:24.175+0000] {processor.py:840} INFO - DAG(s) 'daily_monitoring_dag' retrieved from /opt/airflow/dags/daily_monitoring_dag.py
+[2025-07-05T17:00:24.193+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:24.192+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T17:00:24.209+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:24.209+0000] {dag.py:3954} INFO - Setting next_dagrun for daily_monitoring_dag to 2025-07-05 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T17:00:24.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/daily_monitoring_dag.py took 3.249 seconds

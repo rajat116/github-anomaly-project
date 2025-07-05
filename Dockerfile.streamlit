@@ -1,0 +1,24 @@
+# Dockerfile.streamlit
+
+FROM python:3.12-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy app and requirements
+COPY streamlit_app.py .
+COPY Pipfile Pipfile.lock ./
+
+# Copy data and report directories
+COPY data/ data/
+COPY reports/ reports/
+
+# Install dependencies using Pipenv
+RUN pip install pipenv && \
+    pipenv install --system --deploy --ignore-pipfile
+
+# Expose Streamlit port
+EXPOSE 8501
+
+# Run the Streamlit app
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]

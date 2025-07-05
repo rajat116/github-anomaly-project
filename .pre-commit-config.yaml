@@ -12,5 +12,5 @@ repos:
         entry: flake8
         language: python
         types: [python]
-        args: [--ignore=E501]
+        args: ["--ignore=E501,W503"]
         additional_dependencies: [flake8, flake8-bugbear]

@@ -5219,3 +5219,49 @@ File Path                                    PID    Runtime      # DAGs    # Err
 [2025-07-04T20:16:54.559+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
 [2025-07-04T20:16:54.651+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
 [2025-07-04T20:16:55.196+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-07-05T16:58:53.435+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-05T16:58:53.448+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-05T16:58:53.449+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-05T16:58:53.451+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-05T16:58:53.454+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2025-07-05T16:58:53.777+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/retraining_dag.py            157  0.15s             0           0
+/opt/airflow/dags/daily_github_inference.py                           0           0
+/opt/airflow/dags/daily_monitoring_dag.py      160  0.12s             0           0
+================================================================================
+[2025-07-05T16:59:24.353+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  23.74s          2025-07-05T16:59:17
+/opt/airflow/dags/retraining_dag.py                                   1           0  15.53s          2025-07-05T16:59:09
+/opt/airflow/dags/daily_github_inference.py                           1           0  2.20s           2025-07-05T16:59:11
+================================================================================
+[2025-07-05T16:59:54.504+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/retraining_dag.py                                   1           0  3.86s           2025-07-05T16:59:43
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.31s           2025-07-05T16:59:50
+/opt/airflow/dags/daily_github_inference.py                           1           0  1.94s           2025-07-05T16:59:43
+================================================================================
+[2025-07-05T17:00:24.974+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.29s           2025-07-05T17:00:24
+/opt/airflow/dags/retraining_dag.py                                   1           0  2.69s           2025-07-05T17:00:16
+/opt/airflow/dags/daily_github_inference.py                           1           0  1.02s           2025-07-05T17:00:14
+================================================================================
+[2025-07-05T17:00:41.512+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15

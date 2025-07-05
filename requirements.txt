@@ -10,3 +10,4 @@ evidently==0.7.9
 slack_sdk
 yagmail
 oauth2client  # if Gmail uses OAuth
+streamlit

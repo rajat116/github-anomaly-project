@@ -1,0 +1,21 @@
+[2025-07-05T16:58:53.695+0000] {processor.py:161} INFO - Started process (PID=157) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:58:53.702+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-05T16:58:53.706+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:58:53.705+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:59:08.742+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:59:08.867+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:08.866+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T16:59:08.982+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:08.982+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T16:59:09.070+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 15.418 seconds
+[2025-07-05T16:59:39.512+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:59:39.514+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-05T16:59:39.518+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:39.517+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:59:42.572+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T16:59:43.119+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:43.118+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T16:59:43.183+0000] {logging_mixin.py:188} INFO - [2025-07-05T16:59:43.183+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T16:59:43.276+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 3.775 seconds
+[2025-07-05T17:00:13.623+0000] {processor.py:161} INFO - Started process (PID=249) to work on /opt/airflow/dags/retraining_dag.py
+[2025-07-05T17:00:13.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/retraining_dag.py for tasks to queue
+[2025-07-05T17:00:13.627+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:13.626+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T17:00:16.218+0000] {processor.py:840} INFO - DAG(s) 'weekly_model_retraining' retrieved from /opt/airflow/dags/retraining_dag.py
+[2025-07-05T17:00:16.235+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:16.234+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-07-05T17:00:16.252+0000] {logging_mixin.py:188} INFO - [2025-07-05T17:00:16.252+0000] {dag.py:3954} INFO - Setting next_dagrun for weekly_model_retraining to 2025-06-29 00:00:00+00:00, run_after=2025-07-06 00:00:00+00:00
+[2025-07-05T17:00:16.266+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/retraining_dag.py took 2.651 seconds
