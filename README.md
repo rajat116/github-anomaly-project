@@ -8,7 +8,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **FastAPI** for real-time inference  
 - **Pytest, Black, Flake8** for testing and linting  
 - **Pre-commit + GitHub Actions** for CI/CD and code quality 
-- **Streamlit UI (optional)** for visualization
+- **Streamlit UI** for visualization
 
 ---
 
@@ -171,15 +171,56 @@ Tests are in tests/ and cover:
 - Feature engineering
 - Model training logic
 
-### 6. 📊 Optional Streamlit Dashboard
+### 6. 📊 Streamlit Dashboard
 
-You can optionally add a Streamlit UI to:
+The project includes an optional interactive Streamlit dashboard to visualize:
 
-- Show anomaly scores
-- Display drift metrics
-- Visualize last 24h user activity
+- ✅ Latest anomaly predictions
+- 📈 Data drift metrics from the Evidently report
+- 🧑‍💻 Top actors based on GitHub activity
+- ⏱️ Activity summary over the last 48 hours
 
-Great for demos and storytelling.
+#### 🔧 How to Run Locally
+
+Make sure you have installed all dependencies via Pipenv, then launch the Streamlit app:
+
+```bash
+pipenv run streamlit run streamlit_app.py
+```
+
+Once it starts, open the dashboard in your browser at:
+
+```bash
+http://localhost:8501
+```
+
+The app will automatically load:
+
+- The latest prediction file from data/features/
+- The latest drift report from reports/
+
+Note: If these files do not exist, the dashboard will show a warning or empty state. You can generate them by running the Airflow pipeline or the monitoring scripts manually.
+
+#### 🐳 Optional: Run via Docker
+
+You can also build and run the dashboard as a container (if desired):
+
+Build the image:
+
+```bash
+docker build -t github-anomaly-dashboard -f Dockerfile.streamlit .
+```
+
+Run the container:
+
+```bash
+docker run -p 8501:8501 \
+  -v $(pwd)/data:/app/data \
+  -v $(pwd)/reports:/app/reports \
+  github-anomaly-dashboard
+```
+
+Then open your browser at http://localhost:8501.
 
 ### 7. 🧭 Architecture
 
