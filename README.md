@@ -250,5 +250,3 @@ Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.
 
 ### 10. 📝 License
-
-MIT License
