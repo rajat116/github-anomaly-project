@@ -185,7 +185,7 @@ The project includes an optional interactive Streamlit dashboard to visualize:
 Make sure you have installed all dependencies via Pipenv, then launch the Streamlit app:
 
 ```bash
-pipenv run streamlit run streamlit_app.py
+streamlit run streamlit_app.py
 ```
 
 Once it starts, open the dashboard in your browser at:
