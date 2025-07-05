@@ -139,7 +139,7 @@ These generate alert messages and send them through email and Slack if threshold
 The .github/workflows/ci.yml file runs on push:
 
 - ✅ black --check
-- ✅ flake8 (E501 ignored)
+- ✅ flake8 (E501,W503 ignored)
 - ✅ pytest
 - ✅ (optional) Docker build
 
