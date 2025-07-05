@@ -60,7 +60,7 @@ http://localhost:8080
 ```
 Login: airflow / airflow
 
-#### 3. ⏱️ Airflow DAGs
+#### ⏱️ Airflow DAGs
 
 daily_github_inference: Download → Feature Engineering → Inference
 daily_monitoring_dag: Drift checks, cleanup, alerting
@@ -75,7 +75,7 @@ python scripts/train_model.py
 ```
 The latest parquet file is used automatically. Model and scaler are saved to models/.
 
-### 🚀 4. FastAPI Inference
+### 🚀 3. FastAPI Inference
 
 #### Build & Run
 
@@ -92,7 +92,7 @@ curl -X POST http://localhost:8000/predict \
      -d '{"features": [12, 0, 1, 0, 4]}'
 ```
 
-### 5. ✅ CI/CD with GitHub Actions
+### 4. ✅ CI/CD with GitHub Actions
 
 The .github/workflows/ci.yml file runs on push:
 
@@ -115,7 +115,7 @@ Configured via:
     .pre-commit-config.yaml
     .flake8 (ignore = E501)
 
-### 6. 🧪 Testing
+### 4. 🧪 Testing
 
 Run all tests:
 
@@ -129,7 +129,7 @@ Tests are in tests/ and cover:
     Feature engineering
     Model training logic
 
-### 7. 📊 Optional Streamlit Dashboard
+### 6. 📊 Optional Streamlit Dashboard
 
 You can optionally add a Streamlit UI to:
 
@@ -139,7 +139,7 @@ You can optionally add a Streamlit UI to:
 
 Great for demos and storytelling.
 
-### 8. 🧭 Architecture
+### 7. 🧭 Architecture
 
 To Do
 
@@ -153,7 +153,7 @@ To Do
        ↓           ↘
 [API: FastAPI]    [Alerts / Drift Monitor]
 
-### 9. 🧹 Clean Code
+### 8. 🧹 Clean Code
 
 All code follows:
 
@@ -161,11 +161,11 @@ All code follows:
     Linting with Flake8 + Bugbear
     Pre-commit hook enforcement
 
-### 10. 🙌 Credits
+### 9. 🙌 Credits
 
 Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.
 
-### 11. 📝 License
+### 10. 📝 License
 
 MIT License
