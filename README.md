@@ -4,6 +4,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 
 - **Apache Airflow** for orchestration  
 - **Pandas + Scikit-learn (Isolation Forest)** for modeling and anomaly detection
+- **Alerts: Email & Slack** alerting mechanisms for anomaly spikes and data drift
 - **FastAPI** for real-time inference  
 - **Pytest, Black, Flake8** for testing and linting  
 - **Pre-commit + GitHub Actions** for CI/CD and code quality 
@@ -62,9 +63,9 @@ Login: airflow / airflow
 
 #### ⏱️ Airflow DAGs
 
-daily_github_inference: Download → Feature Engineering → Inference
-daily_monitoring_dag: Drift checks, cleanup, alerting
-retraining_dag: Weekly model retraining
+- daily_github_inference: Download → Feature Engineering → Inference
+- daily_monitoring_dag: Drift checks, cleanup, alerting
+- retraining_dag: Weekly model retraining
 
 ### 🧠 Model Training
 
@@ -92,14 +93,55 @@ curl -X POST http://localhost:8000/predict \
      -d '{"features": [12, 0, 1, 0, 4]}'
 ```
 
+### 5. 📣 Alerts: Email & Slack
+
+This project includes automated alerting mechanisms for anomaly spikes and data drift, integrated into the daily_monitoring_dag DAG.
+
+#### ✅ Triggers for Alerts
+
+- 🔺 Anomaly Rate Alert: If anomaly rate exceeds a threshold (e.g. >10% of actors).
+- 🔁 Drift Detection Alert: If feature distributions change significantly over time.
+
+#### 🔔 Notification Channels
+
+- Email alerts (via smtplib)
+- Slack alerts (via Slack Incoming Webhooks)
+
+#### 🔧 Configuration
+
+Set the following environment variables in your Airflow setup:
+
+```bash
+# .env or Airflow environment
+ALERT_EMAIL_FROM=your_email@example.com
+ALERT_EMAIL_TO=recipient@example.com
+ALERT_EMAIL_PASSWORD=your_email_app_password
+ALERT_EMAIL_SMTP=smtp.gmail.com
+ALERT_EMAIL_PORT=587
+
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXX/YYY/ZZZ
+```
+🛡️ Email app passwords are recommended over actual passwords for Gmail or Outlook.
+
+#### 📁 Alert Script
+
+Logic is handled inside:
+
+```bash
+github_pipeline/monitor.py
+alerts/alerting.py
+```
+
+These generate alert messages and send them through email and Slack if thresholds are breached.
+
 ### 4. ✅ CI/CD with GitHub Actions
 
 The .github/workflows/ci.yml file runs on push:
 
-    ✅ black --check
-    ✅ flake8 (E501 ignored)
-    ✅ pytest
-    ✅ (optional) Docker build
+- ✅ black --check
+- ✅ flake8 (E501 ignored)
+- ✅ pytest
+- ✅ (optional) Docker build
 
 ### 🔍 Code Quality
 
@@ -112,8 +154,8 @@ pre-commit run --all-files
 
 Configured via:
 
-    .pre-commit-config.yaml
-    .flake8 (ignore = E501)
+- .pre-commit-config.yaml
+- .flake8 (ignore = E501)
 
 ### 4. 🧪 Testing
 
@@ -125,17 +167,17 @@ PYTHONPATH=. pytest
 
 Tests are in tests/ and cover:
 
-    Inference API (serve_model.py)
-    Feature engineering
-    Model training logic
+- Inference API (serve_model.py)
+- Feature engineering
+- Model training logic
 
 ### 6. 📊 Optional Streamlit Dashboard
 
 You can optionally add a Streamlit UI to:
 
-    Show anomaly scores
-    Display drift metrics
-    Visualize last 24h user activity
+- Show anomaly scores
+- Display drift metrics
+- Visualize last 24h user activity
 
 Great for demos and storytelling.
 
@@ -157,9 +199,9 @@ To Do
 
 All code follows:
 
-    PEP8 formatting via Black
-    Linting with Flake8 + Bugbear
-    Pre-commit hook enforcement
+- PEP8 formatting via Black
+- Linting with Flake8 + Bugbear
+- Pre-commit hook enforcement
 
 ### 9. 🙌 Credits
 
