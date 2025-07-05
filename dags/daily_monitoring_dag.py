@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
+from monitor import run_monitoring
 from pathlib import Path
 import re
 from glob import glob
@@ -8,13 +9,11 @@ import sys
 
 # Add github_pipeline to PYTHONPATH
 sys.path.append(str(Path(__file__).resolve().parents[1] / "github_pipeline"))
-from monitor import run_monitoring
-
 
 default_args = {
-    'owner': 'rajat',
-    'retries': 1,
-    'retry_delay': timedelta(minutes=2),
+    "owner": "rajat",
+    "retries": 1,
+    "retry_delay": timedelta(minutes=2),
 }
 
 
@@ -37,7 +36,9 @@ def get_two_latest_timestamps():
 
     timestamps = sorted(timestamps)
     if len(timestamps) < 2:
-        raise RuntimeError("[ERROR] Need at least two feature files for drift monitoring.")
+        raise RuntimeError(
+            "[ERROR] Need at least two feature files for drift monitoring."
+        )
 
     return timestamps[-2], timestamps[-1]
 
@@ -52,16 +53,16 @@ def run_monitoring_wrapper(**kwargs):
 
 
 with DAG(
-    dag_id='daily_monitoring_dag',
+    dag_id="daily_monitoring_dag",
     default_args=default_args,
-    description='Run daily monitoring for drift and quality',
-    schedule_interval='@daily',
+    description="Run daily monitoring for drift and quality",
+    schedule_interval="@daily",
     start_date=datetime(2025, 7, 2),
     catchup=False,
-    tags=['github', 'monitoring']
+    tags=["github", "monitoring"],
 ) as dag:
-    
+
     monitor_task = PythonOperator(
-        task_id='run_drift_monitoring',
+        task_id="run_drift_monitoring",
         python_callable=run_monitoring_wrapper,
     )

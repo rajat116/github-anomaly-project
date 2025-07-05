@@ -2,6 +2,7 @@ import os
 import requests
 from tqdm import tqdm
 
+
 def download_hour(year, month, day, hour, save_dir="data/raw"):
     os.makedirs(save_dir, exist_ok=True)
     url = f"https://data.gharchive.org/{year}-{month:02d}-{day:02d}-{hour}.json.gz"
@@ -24,6 +25,7 @@ def download_hour(year, month, day, hour, save_dir="data/raw"):
                 f.write(chunk)
 
     print(f"Saved: {filename}")
+
 
 if __name__ == "__main__":
     # Example: download Jan 1, 2024 at 15:00 UTC

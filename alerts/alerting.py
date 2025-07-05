@@ -11,6 +11,7 @@ EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 
+
 # Slack Alert
 def send_slack_alert(message: str):
     if not SLACK_TOKEN:
@@ -23,6 +24,7 @@ def send_slack_alert(message: str):
         print(f"[SLACK] Alert sent: {response['message']['text']}")
     except SlackApiError as e:
         print(f"[SLACK ERROR] {e.response['error']}")
+
 
 # Email Alert
 def send_email_alert(subject: str, body: str):

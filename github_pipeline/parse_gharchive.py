@@ -40,7 +40,7 @@ def parse_gharchive_json_gz(filepath, max_events=100_000):
     Parse a GitHub Archive .json.gz file into a DataFrame
     """
     rows = []
-    with gzip.open(filepath, 'rt', encoding='utf-8') as f:
+    with gzip.open(filepath, "rt", encoding="utf-8") as f:
         for i, line in enumerate(f):
             if i >= max_events:
                 break
@@ -83,7 +83,9 @@ def run_ingestion(timestamp: str = None, max_events: int = 100_000) -> str:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--timestamp", help="Format: YYYY-MM-DD-HH. If not provided, uses latest.")
+    parser.add_argument(
+        "--timestamp", help="Format: YYYY-MM-DD-HH. If not provided, uses latest."
+    )
     args = parser.parse_args()
 
     run_ingestion(timestamp=args.timestamp)

@@ -1,7 +1,6 @@
 # scripts/train_model.py
 
 import pandas as pd
-import numpy as np
 import joblib
 import mlflow
 from pathlib import Path
@@ -18,8 +17,11 @@ experiment_name = "anomaly_detection_github"
 # Load data
 df = pd.read_parquet(input_file)
 features = [
-    "event_count", "pr_count", "issue_open_count",
-    "fork_count", "repo_diversity"
+    "event_count",
+    "pr_count",
+    "issue_open_count",
+    "fork_count",
+    "repo_diversity",
 ]
 X = df[features].fillna(0)
 
@@ -32,7 +34,7 @@ mlflow.set_experiment(experiment_name)
 with mlflow.start_run():
     mlflow.log_param("model_type", "IsolationForest")
     mlflow.log_param("n_estimators", 100)
-    
+
     model = IsolationForest(n_estimators=100, contamination=0.05, random_state=42)
     model.fit(X_scaled)
 

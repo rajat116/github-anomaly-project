@@ -1,4 +1,4 @@
-# scripts/feature_engineering.py
+# github_pipeline/feature_engineering.py
 
 import pandas as pd
 import argparse
@@ -15,24 +15,28 @@ def run_feature_engineering(timestamp: str):
         raise FileNotFoundError(f"[ERROR] Input file {input_file} does not exist")
 
     df = pd.read_parquet(input_file)
-    df['created_at'] = pd.to_datetime(df['created_at'])
+    df["created_at"] = pd.to_datetime(df["created_at"])
 
     # Floor timestamps to hourly
-    df['timestamp_hour'] = df['created_at'].dt.floor('h')
+    df["timestamp_hour"] = df["created_at"].dt.floor("h")
 
     # Tag event types
-    df['is_pr'] = df['type'] == 'PullRequestEvent'
-    df['is_issue'] = df['type'].str.contains('Issue', na=False)
-    df['is_fork'] = df['type'] == 'ForkEvent'
+    df["is_pr"] = df["type"] == "PullRequestEvent"
+    df["is_issue"] = df["type"].str.contains("Issue", na=False)
+    df["is_fork"] = df["type"] == "ForkEvent"
 
     # Group by actor + hour
-    agg = df.groupby(['actor', 'timestamp_hour']).agg(
-        event_count=('type', 'count'),
-        pr_count=('is_pr', 'sum'),
-        issue_open_count=('is_issue', 'sum'),
-        fork_count=('is_fork', 'sum'),
-        repo_diversity=('repo', pd.Series.nunique),
-    ).reset_index()
+    agg = (
+        df.groupby(["actor", "timestamp_hour"])
+        .agg(
+            event_count=("type", "count"),
+            pr_count=("is_pr", "sum"),
+            issue_open_count=("is_issue", "sum"),
+            fork_count=("is_fork", "sum"),
+            repo_diversity=("repo", pd.Series.nunique),
+        )
+        .reset_index()
+    )
 
     # Save output
     Path(output_file).parent.mkdir(parents=True, exist_ok=True)

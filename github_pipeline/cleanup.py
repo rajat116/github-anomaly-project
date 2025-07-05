@@ -3,6 +3,7 @@ from glob import glob
 import re
 from pathlib import Path
 
+
 def run_cleanup(verbose: bool = True):
     """
     Delete all old files from data folders except:

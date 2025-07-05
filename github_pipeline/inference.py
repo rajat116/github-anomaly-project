@@ -20,15 +20,20 @@ def run_inference(timestamp: str):
     # Load data
     df = pd.read_parquet(input_file)
     features = [
-        "event_count", "pr_count", "issue_open_count",
-        "fork_count", "repo_diversity"
+        "event_count",
+        "pr_count",
+        "issue_open_count",
+        "fork_count",
+        "repo_diversity",
     ]
     X = df[features].fillna(0)
 
     # ✅ Load model
     model_file = Path("models/isolation_forest.pkl")
     if not model_file.exists():
-        raise FileNotFoundError("[ERROR] Model file not found: models/isolation_forest.pkl")
+        raise FileNotFoundError(
+            "[ERROR] Model file not found: models/isolation_forest.pkl"
+        )
 
     scaler, model = joblib.load(model_file)
 

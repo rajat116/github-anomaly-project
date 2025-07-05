@@ -3,13 +3,14 @@ import json
 import pandas as pd
 from pathlib import Path
 
+
 def parse_gharchive_json_gz(filepath, max_events=100_000):
     """
     Parse a GitHub Archive .json.gz file into a DataFrame
     """
     rows = []
 
-    with gzip.open(filepath, 'rt', encoding='utf-8') as f:
+    with gzip.open(filepath, "rt", encoding="utf-8") as f:
         for i, line in enumerate(f):
             if i >= max_events:
                 break
@@ -27,6 +28,7 @@ def parse_gharchive_json_gz(filepath, max_events=100_000):
                 continue
 
     return pd.DataFrame(rows)
+
 
 if __name__ == "__main__":
     input_file = "data/raw/2024-01-01-15.json.gz"

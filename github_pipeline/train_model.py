@@ -2,7 +2,6 @@
 
 import argparse
 import pandas as pd
-import numpy as np
 import joblib
 import mlflow
 from pathlib import Path
@@ -28,8 +27,11 @@ def run_training(timestamp: str):
     # Load features
     df = pd.read_parquet(input_file)
     features = [
-        "event_count", "pr_count", "issue_open_count",
-        "fork_count", "repo_diversity"
+        "event_count",
+        "pr_count",
+        "issue_open_count",
+        "fork_count",
+        "repo_diversity",
     ]
     X = df[features].fillna(0)
 
@@ -56,8 +58,8 @@ def run_training(timestamp: str):
         mlflow.log_artifact(str(model_file))
 
         # Save timestamp of training
-        with open(model_dir/"last_trained.txt", "w") as f:
-            f.write(timestamp)        
+        with open(model_dir / "last_trained.txt", "w") as f:
+            f.write(timestamp)
 
         # Save predictions
         df.to_parquet(output_file, index=False)
@@ -91,7 +93,10 @@ def main():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--timestamp", help="Format: YYYY-MM-DD-HH. If not set, uses latest available file.")
+    parser.add_argument(
+        "--timestamp",
+        help="Format: YYYY-MM-DD-HH. If not set, uses latest available file.",
+    )
     args = parser.parse_args()
 
     if args.timestamp:

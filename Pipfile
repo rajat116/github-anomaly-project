@@ -10,8 +10,17 @@ matplotlib = "*"
 seaborn = "*"
 mlflow = "*"
 evidently = "==0.7.9"
+fastapi = "*"
+uvicorn = "*"
+joblib = "*"
+numpy = "*"
 
 [dev-packages]
+black = "*"
+flake8 = "*"
+pre-commit = "*"
+pytest = "*"
+autoflake = "*"
 
 [requires]
 python_version = "3.12"
