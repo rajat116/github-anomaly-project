@@ -1,5 +1,11 @@
 # === GitHub Anomaly Detection Project: Makefile ===
 
+# === Guards ===
+
+check-terraform:
+	@command -v terraform >/dev/null 2>&1 || \
+	{ echo >&2 "❌ Terraform is not installed. Run 'make install-terraform' first."; 
+
 # --------- Configuration ---------
 PIPENV := pipenv run
 DOCKER_IMAGE := github-anomaly-inference
@@ -25,6 +31,13 @@ help:
 	@echo "Airflow:"
 	@echo "  airflow-up     Start Airflow core services"
 	@echo "  airflow-down   Stop all Airflow services"
+	@echo ""
+	@echo "Terraform:"
+	@echo "  install-terraform  Install Terraform CLI if not present"
+	@echo "  terraform-init         Initialize Terraform config"
+	@echo "  terraform-apply        Provision MLflow container (port 5050)"
+	@echo "  terraform-destroy      Tear down MLflow container"
+	@echo "  terraform-status       Show current infra state"
 	@echo ""
 	@echo "Setup & Cleanup:"
 	@echo "  install        Install all dependencies via Pipenv"
@@ -68,6 +81,31 @@ airflow-up:
 
 airflow-down:
 	docker compose down
+
+# --------- Terraform IaC for MLflow ---------
+
+install-terraform:
+	@command -v terraform >/dev/null 2>&1 && \
+	{ echo "✅ Terraform is already installed."; } || \
+	{ echo "⬇️ Installing Terraform..."; \
+	curl -LO https://releases.hashicorp.com/terraform/1.8.2/terraform_1.8.2_linux_amd64.zip && \
+	unzip -o terraform_1.8.2_linux_amd64.zip && \
+	sudo mv terraform /usr/local/bin/ && \
+	rm terraform_1.8.2_linux_amd64.zip && \
+	echo "✅ Terraform installed successfully."; \
+	terraform -version; }
+
+terraform-init: check-terraform
+	cd infra && terraform init
+
+terraform-apply: check-terraform
+	cd infra && terraform apply
+
+terraform-destroy: check-terraform
+	cd infra && terraform destroy
+
+terraform-status: check-terraform
+	cd infra && terraform show
 
 # --------- Utility ---------
 

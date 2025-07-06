@@ -261,6 +261,60 @@ docker run -p 8501:8501 \
 
 Then open your browser at http://localhost:8501.
 
+### ☁️ Infrastructure as Code (IaC): MLflow Server with Terraform
+
+This Terraform module provisions a **Docker-based MLflow tracking server**, matching the setup used in `docker-compose.yaml`, but on a **different port (5050)** to avoid conflicts.
+
+---
+
+#### 📁 Directory Structure
+
+- infra/main.tf # Terraform configuration
+- README.md # This file
+
+#### ⚙️ Requirements
+
+- [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- [Docker](https://docs.docker.com/get-docker/)
+
+#### 🚀 How to Use:
+
+##### 1. Navigate to the `infra/` folder
+
+```bash
+cd infra
+```
+
+##### 2. Initialize Terraform
+
+```bash
+terraform init
+```
+
+##### 3. Apply the infrastructure
+
+```bash
+terraform apply # Confirm with yes when prompted.
+```
+
+##### 4. 🔎 Verify
+
+MLflow server will be available at:
+
+```bash
+http://localhost:5050
+```
+
+All artifacts will be stored in your project’s mlruns/ directory.
+
+##### 5. ❌ To Clean Up
+
+```bash
+terraform destroy
+```
+
+This removes the MLflow container provisioned by Terraform.
+
 ### 7. 🧭 Architecture
 
 To Do
@@ -331,13 +385,21 @@ Once up, access:
 - Airflow UI: http://localhost:8080 (Login: airflow / airflow)
 - MLflow UI: http://localhost:5000
 
+### MLflow Server with Terraform
+
+```bash
+make install-terraform # Install Terraform CLI if not present
+make terraform-init    # Initialize Terraform config
+make terraform-apply   # Provision MLflow container (port 5050)
+make terraform-destroy # Tear down MLflow container
+make terraform-status  # Show current infra state
+```
+
 #### 📋 View All Commands
 
 ```bash
 make help # Prints a summary of all available targets and their descriptions.
 ```
-
-
 
 ### 10. 🙌 Credits
 
