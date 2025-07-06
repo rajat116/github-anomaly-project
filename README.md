@@ -283,7 +283,63 @@ All code follows:
 - Linting with Flake8 + Bugbear
 - Pre-commit hook enforcement
 
-### 9. 🙌 Credits
+### 🛠️ Makefile Usage
+
+This project includes a Makefile that simplifies formatting, testing, building Docker containers, and running Airflow or the FastAPI inference app.
+
+You can run all commands with or without activating the Pipenv shell. For example:
+
+```bash
+make lint
+```
+
+#### 🔧 Setup Commands
+
+```bash
+make install # Install all dependencies via Pipenv (both runtime and dev)
+make clean # Remove all __pycache__ folders and .pyc files
+```
+
+#### 🧪 Code Quality & Testing
+
+```bash
+make format # Format code using Black
+make lint # Lint code using Flake8
+make test # Run tests using Pytest
+make check # Run all of the above together
+```
+
+#### 🐳 FastAPI Inference App
+
+```bash
+make docker-build # Build the Docker image for FastAPI app
+make docker-run # Run the Docker container on port 8000
+make api-test	# Send a test prediction request using curl
+```
+
+After running make docker-run, open another terminal and run make api-test.
+
+#### ⏱️ Airflow Pipeline
+
+```bash
+make airflow-up # Start Airflow services (scheduler, UI, etc.)
+make airflow-down	Stop all Airflow containers
+```
+
+Once up, access:
+
+- Airflow UI: http://localhost:8080 (Login: airflow / airflow)
+- MLflow UI: http://localhost:5000
+
+#### 📋 View All Commands
+
+```bash
+make help # Prints a summary of all available targets and their descriptions.
+```
+
+
+
+### 10. 🙌 Credits
 
 Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.

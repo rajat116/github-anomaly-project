@@ -2,9 +2,11 @@
 import joblib
 import pandas as pd
 from github_pipeline.train_model import run_training
+from unittest.mock import patch
 
 
-def test_run_training_end_to_end(tmp_path, monkeypatch):
+@patch("github_pipeline.train_model.mlflow")
+def test_run_training_end_to_end(mock_mlflow, tmp_path, monkeypatch):
     # ----------------------------
     # Step 1: Set up test timestamp and paths
     # ----------------------------
