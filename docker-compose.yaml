@@ -14,6 +14,7 @@ services:
     build: .
     depends_on:
       - postgres
+      - mlflow-server
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
@@ -30,6 +31,7 @@ services:
       - ./data:/opt/airflow/data
       - ./models:/opt/airflow/models
       - ./logs:/opt/airflow/logs
+      - ./mlruns:/mlruns
     ports:
       - "8080:8080"
     command: >
@@ -42,6 +44,7 @@ services:
     build: .
     depends_on:
       - postgres
+      - mlflow-server
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
@@ -56,7 +59,19 @@ services:
       - ./data:/opt/airflow/data
       - ./models:/opt/airflow/models
       - ./logs:/opt/airflow/logs
+      - ./mlruns:/mlruns
     command: airflow scheduler
+
+  mlflow-server:
+    image: ghcr.io/mlflow/mlflow:latest
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=sqlite:///mlflow/mlflow.db
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlruns/artifacts
+    volumes:
+      - ./mlruns:/mlruns      
+    ports:
+      - "5000:5000"
+    command: mlflow server --backend-store-uri sqlite:///mlruns/mlflow.db --default-artifact-root /mlruns/artifacts --host 0.0.0.0 --port 5000
 
 volumes:
   postgres-db-volume:

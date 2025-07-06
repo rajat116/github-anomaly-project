@@ -45,27 +45,66 @@ pipenv shell
 pip install -r requirements.txt
 ```
 
-### 2. Run Airflow with Docker Compose
+### 2. ⚙️ Airflow + 📈 MLflow Integration
 
-#### Build and start Airflow:
+This project uses Apache Airflow to orchestrate a real-time ML pipeline and MLflow to track model training, metrics, and artifacts.
+
+#### 🚀 1. Start Airflow & MLflow via Docker
+
+🛠️ Build & Launch
 
 ```bash
 docker compose build airflow
 docker compose up airflow
 ```
 
-Then go to:
+Once up, access:
 
-```bash
-http://localhost:8080
-```
-Login: airflow / airflow
+- Airflow UI: http://localhost:8080 (Login: airflow / airflow)
+- MLflow UI: http://localhost:5000
 
-#### ⏱️ Airflow DAGs
+#### ⏱️ 2. Airflow DAGs Overview
 
 - daily_github_inference: Download → Feature Engineering → Inference
 - daily_monitoring_dag: Drift checks, cleanup, alerting
-- retraining_dag: Weekly model retraining
+- retraining_dag: Triggers model training weekly and logs it to MLflow
+
+#### 📈 3. MLflow Experiment Tracking
+
+Model training is handled by:
+
+```bash
+github_pipeline/train_model.py
+```
+
+Each run logs the following:
+
+✅ Parameters:
+
+- timestamp — Training batch timestamp
+- model_type — Algorithm used (IsolationForest)
+- n_estimators — Number of trees
+
+📊 Metrics
+
+- mean_anomaly_score
+- num_anomalies
+- num_total
+- anomaly_rate
+
+📦 Artifacts
+
+- isolation_forest.pkl — Trained model
+- actor_predictions_<timestamp>.parquet
+- MLflow Model Registry entry
+
+All experiments are stored in the mlruns/ volume:
+
+```bash
+volumes:
+  - ./mlruns:/opt/airflow/mlruns
+```
+You can explore experiment runs and models in the MLflow UI.
 
 ### 🧠 Model Training
 

@@ -20,6 +20,7 @@ def run_training(timestamp: str):
     model_dir.mkdir(exist_ok=True)
     model_file = model_dir / "isolation_forest.pkl"
     experiment_name = "anomaly_detection_github"
+    registered_model_name = "github-anomaly-isolation-forest"
 
     if not Path(input_file).exists():
         raise FileNotFoundError(f"[ERROR] Input file not found: {input_file}")
@@ -40,6 +41,7 @@ def run_training(timestamp: str):
     X_scaled = scaler.fit_transform(X)
 
     # MLflow experiment
+    mlflow.set_tracking_uri("http://mlflow-server:5000")
     mlflow.set_experiment(experiment_name)
     with mlflow.start_run():
         mlflow.log_param("timestamp", timestamp)
@@ -53,9 +55,24 @@ def run_training(timestamp: str):
         df["anomaly_score"] = model.decision_function(X_scaled)
         df["anomaly"] = model.predict(X_scaled) == -1
 
+        # Compute metrics
+        mean_score = df["anomaly_score"].mean()
+        std_score = df["anomaly_score"].std()
+        anomaly_rate = df["anomaly"].mean()  # since anomaly is 0/1
+
+        # Log metrics
+        mlflow.log_metric("mean_anomaly_score", mean_score)
+        mlflow.log_metric("std_anomaly_score", std_score)
+        mlflow.log_metric("anomaly_rate", anomaly_rate)
+
         # Save model and scaler
         joblib.dump((scaler, model), model_file)
         mlflow.log_artifact(str(model_file))
+
+        # Also log model to registry
+        mlflow.sklearn.log_model(
+            model, artifact_path="model", registered_model_name=registered_model_name
+        )
 
         # Save timestamp of training
         with open(model_dir / "last_trained.txt", "w") as f:
@@ -63,7 +80,7 @@ def run_training(timestamp: str):
 
         # Save predictions
         df.to_parquet(output_file, index=False)
-        mlflow.log_artifact(output_file)
+        mlflow.log_artifact(str(output_file))
 
         print(df[["actor", "anomaly_score", "anomaly"]].head())
 

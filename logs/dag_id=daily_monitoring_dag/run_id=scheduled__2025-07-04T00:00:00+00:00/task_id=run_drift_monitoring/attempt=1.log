@@ -21,3 +21,49 @@
 [2025-07-05T16:59:22.929+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
 [2025-07-05T16:59:22.977+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2025-07-05T16:59:22.985+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-05T22:48:25.631+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-05T22:48:25.705+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [queued]>
+[2025-07-05T22:48:25.717+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [queued]>
+[2025-07-05T22:48:25.718+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-05T22:48:25.753+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_drift_monitoring> on 2025-07-04 00:00:00+00:00
+[2025-07-05T22:48:25.791+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=314) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-05T22:48:25.795+0000] {standard_task_runner.py:63} INFO - Started process 324 to run task
+[2025-07-05T22:48:25.805+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_monitoring_dag', 'run_drift_monitoring', 'scheduled__2025-07-04T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/daily_monitoring_dag.py', '--cfg-path', '/tmp/tmp8qda5sou']
+[2025-07-05T22:48:25.807+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask run_drift_monitoring
+[2025-07-05T22:48:25.843+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-05T22:48:25.910+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [running]> on host ca9d5d7b2943
+[2025-07-05T22:48:26.190+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_monitoring_dag' AIRFLOW_CTX_TASK_ID='run_drift_monitoring' AIRFLOW_CTX_EXECUTION_DATE='2025-07-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-04T00:00:00+00:00'
+[2025-07-05T22:48:26.193+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-05T22:48:26.217+0000] {logging_mixin.py:188} INFO - [INFO] Monitoring drift: ref=2025-07-03-15, current=2025-07-04-15
+[2025-07-05T22:48:28.237+0000] {logging_mixin.py:188} INFO - [INFO] Drift report saved:
+ - reports/drift_report_2025-07-05-224828.html
+ - reports/drift_report_2025-07-05-224828.json
+[2025-07-05T22:48:28.252+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-05T22:48:28.252+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-05T22:48:28.261+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_monitoring_dag, task_id=run_drift_monitoring, run_id=scheduled__2025-07-04T00:00:00+00:00, execution_date=20250704T000000, start_date=20250705T224825, end_date=20250705T224828
+[2025-07-05T22:48:28.334+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-05T22:48:28.352+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-05T22:48:28.360+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-05T23:25:54.434+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-05T23:25:54.491+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [queued]>
+[2025-07-05T23:25:54.500+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [queued]>
+[2025-07-05T23:25:54.500+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-05T23:25:54.514+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_drift_monitoring> on 2025-07-04 00:00:00+00:00
+[2025-07-05T23:25:54.532+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=267) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-05T23:25:54.533+0000] {standard_task_runner.py:63} INFO - Started process 273 to run task
+[2025-07-05T23:25:54.531+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_monitoring_dag', 'run_drift_monitoring', 'scheduled__2025-07-04T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/daily_monitoring_dag.py', '--cfg-path', '/tmp/tmpo51gn5tv']
+[2025-07-05T23:25:54.535+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask run_drift_monitoring
+[2025-07-05T23:25:54.550+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-05T23:25:54.588+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_monitoring_dag.run_drift_monitoring scheduled__2025-07-04T00:00:00+00:00 [running]> on host 9da7b743aeb0
+[2025-07-05T23:25:54.692+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_monitoring_dag' AIRFLOW_CTX_TASK_ID='run_drift_monitoring' AIRFLOW_CTX_EXECUTION_DATE='2025-07-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-04T00:00:00+00:00'
+[2025-07-05T23:25:54.693+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-05T23:25:54.709+0000] {logging_mixin.py:188} INFO - [INFO] Monitoring drift: ref=2025-07-03-15, current=2025-07-04-15
+[2025-07-05T23:25:56.137+0000] {logging_mixin.py:188} INFO - [INFO] Drift report saved:
+ - reports/drift_report_2025-07-05-232556.html
+ - reports/drift_report_2025-07-05-232556.json
+[2025-07-05T23:25:56.157+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-05T23:25:56.157+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-05T23:25:56.168+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_monitoring_dag, task_id=run_drift_monitoring, run_id=scheduled__2025-07-04T00:00:00+00:00, execution_date=20250704T000000, start_date=20250705T232554, end_date=20250705T232556
+[2025-07-05T23:25:56.209+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-05T23:25:56.225+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-05T23:25:56.226+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

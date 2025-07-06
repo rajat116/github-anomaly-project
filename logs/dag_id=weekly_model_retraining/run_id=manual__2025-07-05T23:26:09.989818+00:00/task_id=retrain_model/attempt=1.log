@@ -1,0 +1,77 @@
+[2025-07-05T23:26:15.331+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-05T23:26:15.405+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T23:26:09.989818+00:00 [queued]>
+[2025-07-05T23:26:15.422+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T23:26:09.989818+00:00 [queued]>
+[2025-07-05T23:26:15.423+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-05T23:26:15.450+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-07-05 23:26:09.989818+00:00
+[2025-07-05T23:26:15.486+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=286) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-05T23:26:15.488+0000] {standard_task_runner.py:63} INFO - Started process 297 to run task
+[2025-07-05T23:26:15.484+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'manual__2025-07-05T23:26:09.989818+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmpflcftcnu']
+[2025-07-05T23:26:15.493+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask retrain_model
+[2025-07-05T23:26:15.508+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-05T23:26:15.588+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T23:26:09.989818+00:00 [running]> on host 9da7b743aeb0
+[2025-07-05T23:26:15.763+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-07-05T23:26:09.989818+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-05T23:26:09.989818+00:00'
+[2025-07-05T23:26:15.764+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-05T23:26:15.807+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2025-07-04-15
+[2025-07-05T23:26:15.807+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-05T23:26:16.309+0000] {logging_mixin.py:188} WARNING - 2025/07/05 23:26:16 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-05T23:26:17.536+0000] {logging_mixin.py:188} INFO - 🏃 View run indecisive-yak-283 at: http://mlflow-server:5000/#/experiments/1/runs/9680301673ad4a63a9eac9b6fc060207
+[2025-07-05T23:26:17.537+0000] {logging_mixin.py:188} INFO - 🧪 View experiment at: http://mlflow-server:5000/#/experiments/1
+[2025-07-05T23:26:17.580+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-05T23:26:17.581+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/train_model.py", line 100, in main
+    run_training(latest_ts)
+  File "/opt/airflow/github_pipeline/train_model.py", line 60, in run_training
+    mlflow.log_artifact(str(model_file))
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 1404, in log_artifact
+    MlflowClient().log_artifact(run_id, local_path, artifact_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/tracking/client.py", line 2448, in log_artifact
+    self._tracking_client.log_artifact(run_id, local_path, artifact_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/client.py", line 639, in log_artifact
+    artifact_repo.log_artifact(local_path, artifact_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/store/artifact/local_artifact_repo.py", line 43, in log_artifact
+    mkdir(artifact_dir)
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/file_utils.py", line 209, in mkdir
+    raise e
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/file_utils.py", line 206, in mkdir
+    os.makedirs(target, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/mlflow-artifacts'
+[2025-07-05T23:26:17.634+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=manual__2025-07-05T23:26:09.989818+00:00, execution_date=20250705T232609, start_date=20250705T232615, end_date=20250705T232617
+[2025-07-05T23:26:17.673+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task retrain_model ([Errno 13] Permission denied: '/mlflow-artifacts'; 297)
+[2025-07-05T23:26:17.736+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-05T23:26:17.778+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-05T23:26:17.785+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

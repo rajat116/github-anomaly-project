@@ -2,10 +2,10 @@
 
 import gzip
 import json
+import requests
 import argparse
 import pandas as pd
 from pathlib import Path
-from urllib.request import urlretrieve
 from datetime import datetime, timedelta
 
 
@@ -30,7 +30,15 @@ def download_gharchive_json_gz(timestamp: str, output_dir: str = "data/raw") -> 
     if Path(out_path).exists():
         print(f"[INFO] Raw file already exists: {out_path}")
     else:
-        urlretrieve(url, out_path)
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; AirflowBot/1.0)"}
+        response = requests.get(url, headers=headers, stream=True)
+        if response.status_code != 200:
+            raise Exception(
+                f"[ERROR] Failed to download {url}. Status: {response.status_code}"
+            )
+        with open(out_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
         print(f"[INFO] Downloaded {url} to {out_path}")
     return out_path
 

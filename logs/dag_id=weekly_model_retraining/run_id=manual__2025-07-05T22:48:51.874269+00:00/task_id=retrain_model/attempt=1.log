@@ -1,0 +1,147 @@
+[2025-07-05T22:48:55.639+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-05T22:48:55.717+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T22:48:51.874269+00:00 [queued]>
+[2025-07-05T22:48:55.729+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T22:48:51.874269+00:00 [queued]>
+[2025-07-05T22:48:55.729+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-05T22:48:55.741+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-07-05 22:48:51.874269+00:00
+[2025-07-05T22:48:55.755+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=348) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-05T22:48:55.755+0000] {standard_task_runner.py:63} INFO - Started process 354 to run task
+[2025-07-05T22:48:55.757+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'manual__2025-07-05T22:48:51.874269+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmp1zzp4usi']
+[2025-07-05T22:48:55.759+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask retrain_model
+[2025-07-05T22:48:55.774+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-05T22:48:55.808+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-05T22:48:51.874269+00:00 [running]> on host ca9d5d7b2943
+[2025-07-05T22:48:55.881+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-07-05T22:48:51.874269+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-05T22:48:51.874269+00:00'
+[2025-07-05T22:48:55.882+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-05T22:48:55.892+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2025-07-04-15
+[2025-07-05T22:48:55.892+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-05T22:48:55.987+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=6, connect=6, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a21089e50>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:49:00.912+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=5, connect=5, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20d05520>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:49:09.237+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=4, connect=4, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a210b3c20>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:49:25.728+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=3, connect=3, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20070320>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:49:58.393+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=2, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20070860>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:51:03.219+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=1, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20070a70>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:53:03.238+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=0, read=7, redirect=7, status=7)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20071340>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github
+[2025-07-05T22:53:03.245+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-05T22:53:03.246+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x733a20071400>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  [Previous line repeated 4 more times]
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='mlflow-server', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20071400>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 229, in http_request
+    return _get_http_response_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/request_utils.py", line 237, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='mlflow-server', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20071400>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/train_model.py", line 100, in main
+    run_training(latest_ts)
+  File "/opt/airflow/github_pipeline/train_model.py", line 45, in run_training
+    mlflow.set_experiment(experiment_name)
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 183, in set_experiment
+    experiment = client.get_experiment_by_name(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/client.py", line 258, in get_experiment_by_name
+    return self.store.get_experiment_by_name(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 869, in get_experiment_by_name
+    response_proto = self._call_endpoint(GetExperimentByName, req_body)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 135, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 585, in call_endpoint
+    response = http_request(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 252, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to http://mlflow-server:5000/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='mlflow-server', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20071400>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)"))
+[2025-07-05T22:53:03.262+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=manual__2025-07-05T22:48:51.874269+00:00, execution_date=20250705T224851, start_date=20250705T224855, end_date=20250705T225303
+[2025-07-05T22:53:03.274+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task retrain_model (API request to http://mlflow-server:5000/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='mlflow-server', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=anomaly_detection_github (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x733a20071400>: Failed to resolve 'mlflow-server' ([Errno -2] Name or service not known)")); 354)
+[2025-07-05T22:53:03.302+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-05T22:53:03.317+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-05T22:53:03.320+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
