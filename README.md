@@ -15,6 +15,8 @@ This project aims to build a **production-grade anomaly detection system** to:
 
 A production-grade anomaly detection system for GitHub user behavior using:
 
+![Architecture](assets/architecture.png)
+
 - **Apache Airflow** for orchestration  
 - **Pandas + Scikit-learn (Isolation Forest)** for modeling and anomaly detection
 - **Alerts: Email & Slack** alerting mechanisms for anomaly spikes and data drift
@@ -24,7 +26,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Streamlit UI** for visualization  
 - **Terraform** for infrastructure-as-code provisioning (MLflow)
 
-#### You can find the complete pipeline architecture diagram [here](#architecture-diag).
+The full architecture of this GitHub anomaly detection pipeline is illustrated in the diagram below.
 ---
 
 ## 🤖 Too lazy for copy-pasting commands?
@@ -381,12 +383,7 @@ terraform destroy
 
 This removes the MLflow container provisioned by Terraform.
 
-<span id="architecture-diag"></span>
-### 12. 🧭 Architecture
-
-![Architecture](assets/architecture.png)
-
-### 13. 🧹 Clean Code
+### 12. 🧹 Clean Code
 
 All code follows:
 
@@ -395,7 +392,7 @@ All code follows:
 - Pre-commit hook enforcement
 
 <span id="makefile-usage"></span>
-### 14. 🛠️ Makefile Usage
+### 13. 🛠️ Makefile Usage
 
 This project includes a Makefile that simplifies formatting, testing, building Docker containers, and running Airflow or the FastAPI inference app.
 
@@ -460,9 +457,9 @@ make terraform-status  # Show current infra state
 make help # Prints a summary of all available targets and their descriptions.
 ```
 
-### 15. 🙌 Credits
+### 14. 🙌 Credits
 
 Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.
 
-### 16. 📝 License
+### 14. 📝 License
