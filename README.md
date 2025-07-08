@@ -24,7 +24,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Streamlit UI** for visualization  
 - **Terraform** for infrastructure-as-code provisioning (MLflow)
 
-### The full architecture of this GitHub anomaly detection pipeline is illustrated in the diagram below.
+#### The full architecture of this GitHub anomaly detection pipeline is illustrated in the diagram below.
 
 ![Architecture](assets/architecture.png)
 
