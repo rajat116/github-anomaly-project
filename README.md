@@ -35,7 +35,7 @@ Just use the **Makefile** to do all the boring stuff for you:
 make help
 ```
 
-See full Makefile usage [here](#14-makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
+See full Makefile usage [here](#makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
 
 ## 📦 Project Structure
 
@@ -369,6 +369,7 @@ All code follows:
 - Linting with Flake8 + Bugbear
 - Pre-commit hook enforcement
 
+<span id="makefile-usage"></span>
 ### 14. 🛠️ Makefile Usage
 
 This project includes a Makefile that simplifies formatting, testing, building Docker containers, and running Airflow or the FastAPI inference app.
