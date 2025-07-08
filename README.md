@@ -35,7 +35,7 @@ Just use the **Makefile** to do all the boring stuff for you:
 make help
 ```
 
-See full Makefile usage [here](#makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
+See full Makefile usage [here](#14-makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
 
 ## 📦 Project Structure
 
@@ -148,7 +148,7 @@ volumes:
 ```
 You can explore experiment runs and models in the MLflow UI.
 
-### 🧠 Model Training
+### 3. 🧠 Model Training
 
 The model (Isolation Forest) is trained on actor-wise event features:
 
@@ -157,7 +157,7 @@ python scripts/train_model.py
 ```
 The latest parquet file is used automatically. Model and scaler are saved to models/.
 
-### 🚀 3. FastAPI Inference
+### 4. 🚀 FastAPI Inference
 
 #### Build & Run
 
@@ -215,7 +215,7 @@ alerts/alerting.py
 
 These generate alert messages and send them through email and Slack if thresholds are breached.
 
-### 4. ✅ CI/CD with GitHub Actions
+### 6. ✅ CI/CD with GitHub Actions
 
 The .github/workflows/ci.yml file runs on push:
 
@@ -224,7 +224,7 @@ The .github/workflows/ci.yml file runs on push:
 - ✅ pytest
 - ✅ (optional) Docker build
 
-### 🔍 Code Quality
+### 7. 🔍 Code Quality
 
 Pre-commit hooks ensure style and linting:
 
@@ -238,7 +238,7 @@ Configured via:
 - .pre-commit-config.yaml
 - .flake8 (ignore = E501)
 
-### 4. 🧪 Testing
+### 8. 🧪 Testing
 
 Run all tests:
 
@@ -252,7 +252,7 @@ Tests are in tests/ and cover:
 - Feature engineering
 - Model training logic
 
-### 6. 📊 Streamlit Dashboard
+### 9. 📊 Streamlit Dashboard
 
 The project includes an optional interactive Streamlit dashboard to visualize:
 
@@ -303,7 +303,7 @@ docker run -p 8501:8501 \
 
 Then open your browser at http://localhost:8501.
 
-### ☁️ Infrastructure as Code (IaC): MLflow Server with Terraform
+### 11. ☁️ Infrastructure as Code (IaC): MLflow Server with Terraform
 
 This Terraform module provisions a **Docker-based MLflow tracking server**, matching the setup used in `docker-compose.yaml`, but on a **different port (5050)** to avoid conflicts.
 
@@ -357,11 +357,11 @@ terraform destroy
 
 This removes the MLflow container provisioned by Terraform.
 
-### 7. 🧭 Architecture
+### 12. 🧭 Architecture
 
 ![Architecture](assets/architecture.png)
 
-### 8. 🧹 Clean Code
+### 13. 🧹 Clean Code
 
 All code follows:
 
@@ -369,7 +369,7 @@ All code follows:
 - Linting with Flake8 + Bugbear
 - Pre-commit hook enforcement
 
-### 🛠️ Makefile Usage
+### 14. 🛠️ Makefile Usage
 
 This project includes a Makefile that simplifies formatting, testing, building Docker containers, and running Airflow or the FastAPI inference app.
 
@@ -434,9 +434,9 @@ make terraform-status  # Show current infra state
 make help # Prints a summary of all available targets and their descriptions.
 ```
 
-### 10. 🙌 Credits
+### 15. 🙌 Credits
 
 Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.
 
-### 10. 📝 License
+### 16. 📝 License
