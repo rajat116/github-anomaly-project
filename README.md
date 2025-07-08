@@ -382,7 +382,7 @@ This removes the MLflow container provisioned by Terraform.
 
 ### 12. 🧭 Architecture
 
-![Architecture](assets/architecture.pdf)
+![Architecture](assets/architecture.png)
 
 ### 13. 🧹 Clean Code
 
