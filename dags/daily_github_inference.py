@@ -7,6 +7,20 @@ from github_pipeline.feature_engineering import run_feature_engineering
 from github_pipeline.inference import run_inference
 from github_pipeline.cleanup import run_cleanup
 
+"""
+DAG: daily_github_inference
+
+This Airflow DAG orchestrates the daily GitHub anomaly detection pipeline.
+
+Tasks:
+- 📥 Download and parse GitHub Archive logs for the previous day at 15:00 UTC
+- 🛠️ Perform feature engineering on the ingested data
+- 🧠 Run inference using the latest trained Isolation Forest model
+- 🧹 Clean up old data files, keeping only the latest relevant timestamps
+
+Each step uses PythonOperators to invoke modular functions from github_pipeline.
+"""
+
 
 def get_yesterday_fixed_hour(ds: str, hour: int = 15) -> str:
     """

@@ -8,6 +8,14 @@ import re
 
 
 def run_feature_engineering(timestamp: str):
+    """
+    Generates actor-level hourly features from GitHub event logs
+    for a given timestamp and saves them as a Parquet file.
+
+    Input:  data/processed/{timestamp}.parquet
+    Output: data/features/actor_features_{timestamp}.parquet
+    """
+
     input_file = f"data/processed/{timestamp}.parquet"
     output_file = f"data/features/actor_features_{timestamp}.parquet"
 

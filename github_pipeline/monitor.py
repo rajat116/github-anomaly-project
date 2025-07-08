@@ -13,6 +13,19 @@ import re
 
 
 def run_monitoring(reference_ts: str, current_ts: str):
+    """
+    Checks for data drift (via Evidently) and anomaly spikes between two timestamps.
+    Triggers Slack and Email alerts if drift or anomalies are detected.
+
+    Inputs:
+      - actor_features_{reference_ts}.parquet
+      - actor_features_{current_ts}.parquet
+      - actor_predictions_{current_ts}.parquet (optional for anomaly alert)
+
+    Outputs:
+      - JSON and HTML drift reports in the 'reports/' directory
+    """
+
     # === Feature Columns ===
     feature_cols = [
         "event_count",

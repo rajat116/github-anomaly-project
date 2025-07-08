@@ -12,6 +12,22 @@ from sklearn.preprocessing import StandardScaler
 
 
 def run_training(timestamp: str):
+    """
+    Trains an Isolation Forest model for anomaly detection using actor features for a given timestamp.
+
+    Steps:
+    - Loads feature parquet file.
+    - Scales the data and trains the model.
+    - Computes anomaly scores and flags.
+    - Logs parameters, metrics, and artifacts to MLflow.
+    - Saves the model and prediction results to disk and registry.
+
+    Outputs:
+    - models/isolation_forest.pkl
+    - models/last_trained.txt
+    - data/features/actor_predictions_<timestamp>.parquet
+    """
+
     print("[INFO] Starting model training...")
 
     input_file = f"data/features/actor_features_{timestamp}.parquet"

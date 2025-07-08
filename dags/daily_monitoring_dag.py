@@ -7,6 +7,19 @@ import re
 from glob import glob
 import sys
 
+"""
+DAG: daily_monitoring_dag
+
+This Airflow DAG runs daily monitoring on GitHub features.
+
+Tasks:
+- 🧪 Compare the two latest feature files to detect data drift using Evidently
+- 🚨 Trigger alerts via Slack and Email if drift or anomaly spikes are detected
+- 📊 Save drift reports as JSON and HTML in the reports/ directory
+
+This DAG complements the daily inference DAG by validating data quality and stability.
+"""
+
 # Add github_pipeline to PYTHONPATH
 sys.path.append(str(Path(__file__).resolve().parents[1] / "github_pipeline"))
 

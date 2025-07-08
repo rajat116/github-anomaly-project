@@ -9,6 +9,13 @@ import re
 
 
 def run_inference(timestamp: str):
+    """
+    Runs anomaly inference on actor-level features using Isolation Forest.
+
+    Input:  data/features/actor_features_{timestamp}.parquet
+    Output: data/features/actor_predictions_{timestamp}.parquet
+    """
+
     print(f"[INFO] Running inference for timestamp: {timestamp}")
 
     input_file = f"data/features/actor_features_{timestamp}.parquet"

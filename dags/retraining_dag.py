@@ -5,6 +5,20 @@ from train_model import main as retrain_model
 import sys
 import os
 
+"""
+DAG: weekly_model_retraining
+
+This Airflow DAG retrains the Isolation Forest model every week using the latest feature data.
+
+Tasks:
+- 🧠 Loads most recent actor features from data/features/
+- 🛠️ Trains an Isolation Forest model on engineered features
+- 🗃️ Logs model metrics and artifacts to MLflow
+- 💾 Saves model and anomaly scores in models/ and data/features/
+
+This DAG ensures the anomaly detection system stays up to date with evolving GitHub activity patterns.
+"""
+
 # Ensure github_pipeline is in the PYTHONPATH
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "github_pipeline"))

@@ -10,6 +10,7 @@ def run_cleanup(verbose: bool = True):
     - Last 2 timestamps
     - The timestamp used in latest model training (stored in models/last_trained.txt)
     """
+
     folders = [
         "data/raw",
         "data/processed",

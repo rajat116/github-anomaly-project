@@ -47,7 +47,6 @@ See full Makefile usage [here](#makefile-usage) — from setup to linting, testi
 ├── mlruns/                  ← MLflow experiment tracking artifacts
 ├── infra/                   ← Terraform IaC for provisioning MLflow container
 ├── github_pipeline/         ← Feature engineering, inference, monitoring scripts
-├── scripts/                 ← Utility or automation scripts (e.g., setup, cleanup)
 ├── tests/                   ← Pytest-based unit/integration tests
 ├── reports/                 ← Data drift reports (JSON/HTML) from Evidently
 ├── alerts/                  ← Alert log dumps (e.g., triggered drift/anomaly alerts)
@@ -177,7 +176,7 @@ You can explore experiment runs and models in the MLflow UI.
 The model (Isolation Forest) is trained on actor-wise event features:
 
 ```bash
-python scripts/train_model.py
+python github_pipeline/train_model.py
 ```
 The latest parquet file is used automatically. Model and scaler are saved to models/.
 
