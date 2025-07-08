@@ -1,3 +1,5 @@
+![Banner](assets/banner.png)
+
 # 🛠️ GitHub Anomaly Detection Pipeline
 
 ## 💡 Motivation & Use Case
