@@ -1,5 +1,18 @@
 # 🛠️ GitHub Anomaly Detection Pipeline
 
+## 💡 Motivation & Use Case
+
+GitHub hosts an enormous amount of user activity, including pull requests, issues, forks, and stars. Monitoring this activity in real-time is essential for identifying unusual or malicious behavior — such as bots, misuse, or suspicious spikes in contributions. 
+
+This project aims to build a **production-grade anomaly detection system** to:
+
+- Detect abnormal GitHub user behavior (e.g., excessive PRs, bot-like stars)
+- Alert maintainers and admins in real time via Slack or email
+- Serve anomaly scores via API and support continuous retraining
+- Visualize trends, drift, and recent activity using an interactive dashboard
+
+---
+
 A production-grade anomaly detection system for GitHub user behavior using:
 
 - **Apache Airflow** for orchestration  
@@ -7,29 +20,30 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Alerts: Email & Slack** alerting mechanisms for anomaly spikes and data drift
 - **FastAPI** for real-time inference  
 - **Pytest, Black, Flake8** for testing and linting  
-- **Pre-commit + GitHub Actions** for CI/CD and code quality 
-- **Streamlit UI** for visualization
+- **Pre-commit + GitHub Actions** for CI/CD and code quality  
+- **Streamlit UI** for visualization  
+- **Terraform** for infrastructure-as-code provisioning (MLflow)
 
 ---
+
+## 🤖 Too lazy for copy-pasting commands?
+
+If you're like me and hate typing out commands... good news!  
+Just use the **Makefile** to do all the boring stuff for you:
+
+```bash
+make help
+```
+
+See full Makefile usage [here](#makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
 
 ## 📦 Project Structure
 
-# To Do
-
-
----
-
-## 📈 Use Case
-
-The pipeline detects anomalies in GitHub user behavior on an hourly basis and can:
-
-- Alert on suspicious activity (e.g., bot-like behavior)
-- Serve anomaly scores via API
-- Continuously retrain and monitor model health
+# Coming Soon
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Setup Instructions
 
 ### 1. Clone and install dependencies
 
@@ -44,6 +58,34 @@ pipenv shell
 ```bash
 pip install -r requirements.txt
 ```
+
+### 📄 .env Configuration (Required)
+
+Before running Airflow, you must create a `.env` file in the project root with at least this line:
+
+```env
+AIRFLOW_UID=50000
+```
+
+This is required for Docker to set correct permissions inside the Airflow containers.
+
+#### Optional (For Email & Slack Alerts)
+
+If you'd like to enable alerts, you can also include the following variables:
+
+```env
+# Slack Alerts
+SLACK_API_TOKEN=xoxb-...
+SLACK_CHANNEL=#your-channel
+
+# Email Alerts
+EMAIL_SENDER=your_email@example.com
+EMAIL_PASSWORD=your_email_app_password
+EMAIL_RECEIVER=receiver@example.com
+EMAIL_SMTP=smtp.gmail.com
+EMAIL_PORT=587
+```
+---
 
 ### 2. ⚙️ Airflow + 📈 MLflow Integration
 
@@ -317,17 +359,7 @@ This removes the MLflow container provisioned by Terraform.
 
 ### 7. 🧭 Architecture
 
-To Do
-
-[GitHub Archive Logs]
-       ↓
-[Airflow DAG]
-       ↓
-[Feature Engineering]
-       ↓
-[Isolation Forest Model]
-       ↓           ↘
-[API: FastAPI]    [Alerts / Drift Monitor]
+![Architecture](assets/architecture.png)
 
 ### 8. 🧹 Clean Code
 
@@ -351,6 +383,7 @@ make lint
 
 ```bash
 make install # Install all dependencies via Pipenv (both runtime and dev)
+make create-env   # Create .env file with required AIRFLOW_UID and alert config placeholders
 make clean # Remove all __pycache__ folders and .pyc files
 ```
 

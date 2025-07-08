@@ -41,12 +41,28 @@ help:
 	@echo ""
 	@echo "Setup & Cleanup:"
 	@echo "  install        Install all dependencies via Pipenv"
+	@echo "  create-env     Create .env file with required AIRFLOW_UID and alert config placeholders"
 	@echo "  clean          Remove __pycache__ and .pyc files"
 
 # --------- Setup ---------
 
 install:
 	pipenv install --dev
+
+create-env:
+	@if [ -f .env ]; then \
+		echo "✅ .env file already exists. Skipping creation."; \
+	else \
+		echo "🔧 Creating .env template file..."; \
+		echo "AIRFLOW_UID=50000" > .env; \
+		echo "# SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXX/YYY/ZZZ" >> .env; \
+		echo "# ALERT_EMAIL_FROM=your_email@example.com" >> .env; \
+		echo "# ALERT_EMAIL_TO=recipient@example.com" >> .env; \
+		echo "# ALERT_EMAIL_PASSWORD=your_app_password" >> .env; \
+		echo "# ALERT_EMAIL_SMTP=smtp.gmail.com" >> .env; \
+		echo "# ALERT_EMAIL_PORT=587" >> .env; \
+		echo "✅ .env file created."; \
+	fi
 
 # --------- Code Quality ---------
 
