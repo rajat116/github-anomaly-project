@@ -15,8 +15,6 @@ This project aims to build a **production-grade anomaly detection system** to:
 
 A production-grade anomaly detection system for GitHub user behavior using:
 
-![Architecture](assets/architecture.png)
-
 - **Apache Airflow** for orchestration  
 - **Pandas + Scikit-learn (Isolation Forest)** for modeling and anomaly detection
 - **Alerts: Email & Slack** alerting mechanisms for anomaly spikes and data drift
@@ -27,6 +25,9 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Terraform** for infrastructure-as-code provisioning (MLflow)
 
 The full architecture of this GitHub anomaly detection pipeline is illustrated in the diagram below.
+
+![Architecture](assets/architecture.png)
+
 ---
 
 ## 🤖 Too lazy for copy-pasting commands?
