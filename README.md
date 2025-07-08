@@ -39,7 +39,31 @@ See full Makefile usage [here](#makefile-usage) — from setup to linting, testi
 
 ## 📦 Project Structure
 
-# Coming Soon
+```java
+.
+├── dags/                    ← Airflow DAGs for data pipeline and retraining
+├── data/                    ← Input datasets (raw, features, processed)
+├── models/                  ← Trained ML models (e.g., Isolation Forest)
+├── mlruns/                  ← MLflow experiment tracking artifacts
+├── infra/                   ← Terraform IaC for provisioning MLflow container
+├── github_pipeline/         ← Feature engineering, inference, monitoring scripts
+├── scripts/                 ← Utility or automation scripts (e.g., setup, cleanup)
+├── tests/                   ← Pytest-based unit/integration tests
+├── reports/                 ← Data drift reports (JSON/HTML) from Evidently
+├── alerts/                  ← Alert log dumps (e.g., triggered drift/anomaly alerts)
+├── notebooks/               ← Jupyter notebooks for exploration & experimentation
+├── assets/                  ← Images and architecture diagrams for README
+├── .github/workflows/       ← GitHub Actions CI/CD pipelines
+├── streamlit_app.py         ← Realtime dashboard for monitoring
+├── serve_model.py           ← FastAPI inference service
+├── Dockerfile.*             ← Dockerfiles for API and Streamlit services
+├── docker-compose.yaml      ← Compose file to run Airflow and supporting services
+├── Makefile                 ← Task automation: setup, test, Airflow, Terraform, etc.
+├── requirements.txt         ← Python dependencies for Airflow containers
+├── Pipfile / Pipfile.lock   ← Python project environment (via Pipenv)
+├── .env                     ← Environment variables (Slack, Email, Airflow UID)
+└── README.md                ← 📘 You are here
+```
 
 ---
 
