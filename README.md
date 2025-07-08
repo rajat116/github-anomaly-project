@@ -24,6 +24,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Streamlit UI** for visualization  
 - **Terraform** for infrastructure-as-code provisioning (MLflow)
 
+You can find the complete pipeline architecture diagram [here] (#architecture).
 ---
 
 ## 🤖 Too lazy for copy-pasting commands?
@@ -380,6 +381,7 @@ terraform destroy
 
 This removes the MLflow container provisioned by Terraform.
 
+<span id="architecture"></span>
 ### 12. 🧭 Architecture
 
 ![Architecture](assets/architecture.png)
