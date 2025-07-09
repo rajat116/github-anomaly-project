@@ -17,6 +17,7 @@ numpy = "*"
 streamlit = "*"
 slack-sdk = "*"
 yagmail = "*"
+s3fs = "*"
 
 [dev-packages]
 black = "*"
