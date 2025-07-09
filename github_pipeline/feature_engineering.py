@@ -2,9 +2,13 @@
 
 import pandas as pd
 import argparse
-from pathlib import Path
 from glob import glob
 import re
+from github_pipeline.utils.aws_utils import (
+    read_parquet,
+    write_parquet,
+    is_s3_enabled,
+)
 
 
 def run_feature_engineering(timestamp: str):
@@ -16,13 +20,14 @@ def run_feature_engineering(timestamp: str):
     Output: data/features/actor_features_{timestamp}.parquet
     """
 
-    input_file = f"data/processed/{timestamp}.parquet"
-    output_file = f"data/features/actor_features_{timestamp}.parquet"
+    input_file = f"processed/{timestamp}.parquet"
+    output_file = f"features/actor_features_{timestamp}.parquet"
 
-    if not Path(input_file).exists():
-        raise FileNotFoundError(f"[ERROR] Input file {input_file} does not exist")
+    try:
+        df = read_parquet(input_file)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"[ERROR] Input file does not exist: {input_file}")
 
-    df = pd.read_parquet(input_file)
     df["created_at"] = pd.to_datetime(df["created_at"])
 
     # Floor timestamps to hourly
@@ -47,10 +52,10 @@ def run_feature_engineering(timestamp: str):
     )
 
     # Save output
-    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
-    agg.to_parquet(output_file, index=False)
-
-    print(f"[INFO] Saved engineered features to: {output_file}")
+    write_parquet(agg, output_file)
+    print(
+        f"[INFO] Saved engineered features to: {'s3' if is_s3_enabled() else 'local'} → {output_file}"
+    )
     print(agg.head())
 
 

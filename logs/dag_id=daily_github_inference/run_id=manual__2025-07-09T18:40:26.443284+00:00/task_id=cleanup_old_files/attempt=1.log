@@ -1,0 +1,51 @@
+[2025-07-09T18:40:51.513+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T18:40:51.554+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:40:26.443284+00:00 [queued]>
+[2025-07-09T18:40:51.562+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:40:26.443284+00:00 [queued]>
+[2025-07-09T18:40:51.562+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-09T18:40:51.573+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): cleanup_old_files> on 2025-07-09 18:40:26.443284+00:00
+[2025-07-09T18:40:51.585+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=432) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T18:40:51.586+0000] {standard_task_runner.py:63} INFO - Started process 438 to run task
+[2025-07-09T18:40:51.587+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'cleanup_old_files', 'manual__2025-07-09T18:40:26.443284+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/daily_github_inference.py', '--cfg-path', '/tmp/tmpveu2dfqa']
+[2025-07-09T18:40:51.588+0000] {standard_task_runner.py:91} INFO - Job 48: Subtask cleanup_old_files
+[2025-07-09T18:40:51.599+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T18:40:51.629+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:40:26.443284+00:00 [running]> on host 49b9a4a3b242
+[2025-07-09T18:40:51.714+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='cleanup_old_files' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T18:40:26.443284+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T18:40:26.443284+00:00'
+[2025-07-09T18:40:51.715+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T18:40:51.738+0000] {credentials.py:567} INFO - Found credentials in environment variables.
+[2025-07-09T18:40:52.292+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T18:40:52.294+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/cleanup.py", line 27, in run_cleanup
+    files = fs.ls(prefix)
+            ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/asyn.py", line 118, in wrapper
+    return sync(self.loop, func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/asyn.py", line 103, in sync
+    raise return_result
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/asyn.py", line 56, in _runner
+    result[0] = await coro
+                ^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/s3fs/core.py", line 1054, in _ls
+    raise FileNotFoundError(path)
+FileNotFoundError: github-anomaly-project/raw
+[2025-07-09T18:40:52.317+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=cleanup_old_files, run_id=manual__2025-07-09T18:40:26.443284+00:00, execution_date=20250709T184026, start_date=20250709T184051, end_date=20250709T184052
+[2025-07-09T18:40:52.328+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 48 for task cleanup_old_files (github-anomaly-project/raw; 438)
+[2025-07-09T18:40:52.364+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-09T18:40:52.377+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T18:40:52.378+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,23 @@
+[2025-07-09T20:13:26.588+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T20:13:26.645+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:36:48.363789+00:00 [queued]>
+[2025-07-09T20:13:26.665+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:36:48.363789+00:00 [queued]>
+[2025-07-09T20:13:26.666+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-07-09T20:13:26.683+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): cleanup_old_files> on 2025-07-09 18:36:48.363789+00:00
+[2025-07-09T20:13:26.708+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=165) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T20:13:26.712+0000] {standard_task_runner.py:63} INFO - Started process 179 to run task
+[2025-07-09T20:13:26.723+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'cleanup_old_files', 'manual__2025-07-09T18:36:48.363789+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/daily_github_inference.py', '--cfg-path', '/tmp/tmppoo5mhx2']
+[2025-07-09T20:13:26.729+0000] {standard_task_runner.py:91} INFO - Job 53: Subtask cleanup_old_files
+[2025-07-09T20:13:26.755+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T20:13:26.830+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.cleanup_old_files manual__2025-07-09T18:36:48.363789+00:00 [running]> on host 49b9a4a3b242
+[2025-07-09T20:13:27.197+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='cleanup_old_files' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T18:36:48.363789+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T18:36:48.363789+00:00'
+[2025-07-09T20:13:27.198+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T20:13:27.283+0000] {credentials.py:567} INFO - Found credentials in environment variables.
+[2025-07-09T20:13:29.627+0000] {logging_mixin.py:188} INFO - [CLEANUP] No files found in: github-anomaly-project/raw/ — skipping.
+[2025-07-09T20:13:29.925+0000] {logging_mixin.py:188} INFO - [CLEANUP] Deleted 0 old files.
+[2025-07-09T20:13:29.926+0000] {logging_mixin.py:188} INFO - [CLEANUP] Retained timestamps: ['2025-07-05-15', '2025-07-08-15']
+[2025-07-09T20:13:29.926+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-09T20:13:29.926+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T20:13:29.943+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_github_inference, task_id=cleanup_old_files, run_id=manual__2025-07-09T18:36:48.363789+00:00, execution_date=20250709T183648, start_date=20250709T201326, end_date=20250709T201329
+[2025-07-09T20:13:29.995+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-09T20:13:30.010+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T20:13:30.011+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -11,3 +11,7 @@ slack_sdk
 yagmail
 oauth2client  # if Gmail uses OAuth
 streamlit
+boto3
+s3fs
+python-dotenv
+psycopg2-binary

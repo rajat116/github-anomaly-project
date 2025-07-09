@@ -16,4 +16,5 @@ __pycache__/
 .env
 
 # VS Code
-.vscode/
+mlruns/*
+!mlruns/.gitkeep

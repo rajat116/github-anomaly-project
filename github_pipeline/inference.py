@@ -1,11 +1,14 @@
 # github_pipeline/inference.py
 
 import argparse
-import pandas as pd
-import joblib
-from pathlib import Path
 from glob import glob
 import re
+from github_pipeline.utils.aws_utils import (
+    read_parquet,
+    write_parquet,
+    load_pickle,
+    is_s3_enabled,
+)
 
 
 def run_inference(timestamp: str):
@@ -18,14 +21,15 @@ def run_inference(timestamp: str):
 
     print(f"[INFO] Running inference for timestamp: {timestamp}")
 
-    input_file = f"data/features/actor_features_{timestamp}.parquet"
-    output_file = f"data/features/actor_predictions_{timestamp}.parquet"
-
-    if not Path(input_file).exists():
-        raise FileNotFoundError(f"[ERROR] Input file {input_file} not found.")
+    input_file = f"features/actor_features_{timestamp}.parquet"
+    output_file = f"features/actor_predictions_{timestamp}.parquet"
 
     # Load data
-    df = pd.read_parquet(input_file)
+    try:
+        df = read_parquet(input_file)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"[ERROR] Input file not found: {input_file}")
+
     features = [
         "event_count",
         "pr_count",
@@ -36,13 +40,10 @@ def run_inference(timestamp: str):
     X = df[features].fillna(0)
 
     # ✅ Load model
-    model_file = Path("models/isolation_forest.pkl")
-    if not model_file.exists():
-        raise FileNotFoundError(
-            "[ERROR] Model file not found: models/isolation_forest.pkl"
-        )
-
-    scaler, model = joblib.load(model_file)
+    try:
+        scaler, model = load_pickle("isolation_forest.pkl")
+    except FileNotFoundError:
+        raise FileNotFoundError("[ERROR] Model file not found: isolation_forest.pkl")
 
     # ✅ Predict
     X_scaled = scaler.transform(X)
@@ -53,8 +54,10 @@ def run_inference(timestamp: str):
     df["anomaly"] = preds == -1
 
     # Save output
-    df.to_parquet(output_file, index=False)
-    print(f"[INFO] Inference complete. Output saved to {output_file}")
+    write_parquet(df, output_file)
+    print(
+        f"[INFO] Inference complete. Output saved to {'s3' if is_s3_enabled() else 'local'}: {output_file}"
+    )
 
 
 def main():

@@ -1,13 +1,18 @@
 # github_pipeline/monitor.py
 
 import argparse
-import pandas as pd
 import json
 from pathlib import Path
 from datetime import datetime, timezone
 from evidently import Report
 from evidently.presets import DataDriftPreset
 from alerts.alerting import send_slack_alert, send_email_alert
+from github_pipeline.utils.aws_utils import (
+    read_parquet,
+    is_s3_enabled,
+    bucket_name,
+)
+import s3fs
 from glob import glob
 import re
 
@@ -39,18 +44,13 @@ def run_monitoring(reference_ts: str, current_ts: str):
     report_dir = Path("reports")
     report_dir.mkdir(exist_ok=True, parents=True)
 
-    ref_file = f"data/features/actor_features_{reference_ts}.parquet"
-    cur_file = f"data/features/actor_features_{current_ts}.parquet"
-    pred_file = f"data/features/actor_predictions_{current_ts}.parquet"
-
-    if not Path(ref_file).exists():
-        raise FileNotFoundError(f"[ERROR] Reference file not found: {ref_file}")
-    if not Path(cur_file).exists():
-        raise FileNotFoundError(f"[ERROR] Current file not found: {cur_file}")
+    ref_file = f"features/actor_features_{reference_ts}.parquet"
+    cur_file = f"features/actor_features_{current_ts}.parquet"
+    pred_file = f"features/actor_predictions_{current_ts}.parquet"
 
     # === Load Data ===
-    df_ref = pd.read_parquet(ref_file)[feature_cols].fillna(0)
-    df_cur = pd.read_parquet(cur_file)[feature_cols].fillna(0)
+    df_ref = read_parquet(ref_file)[feature_cols].fillna(0)
+    df_cur = read_parquet(cur_file)[feature_cols].fillna(0)
 
     # === Run Evidently Report ===
     report = Report(metrics=[DataDriftPreset()])
@@ -90,17 +90,20 @@ def run_monitoring(reference_ts: str, current_ts: str):
         send_email_alert("Drift Alert", msg)
 
     # === Trigger Anomaly Score Alert ===
-    if Path(pred_file).exists():
-        df_pred = pd.read_parquet(pred_file)
-        if "anomaly_score" in df_pred.columns:
-            mean_score = df_pred["anomaly_score"].mean()
-            threshold = -0.1  # Customize this based on your model
+    try:
+        df_pred = read_parquet(pred_file)
+    except FileNotFoundError:
+        df_pred = None
 
-            if mean_score < threshold:
-                msg = f"🚨 Anomaly spike detected at {current_ts}. Mean score: {mean_score:.4f}"
-                print("[ALERT] " + msg)
-                send_slack_alert(msg)
-                send_email_alert("Anomaly Alert", msg)
+    if df_pred is not None and "anomaly_score" in df_pred.columns:
+        mean_score = df_pred["anomaly_score"].mean()
+        threshold = -0.1  # Customize this based on your model
+
+        if mean_score < threshold:
+            msg = f"🚨 Anomaly spike detected at {current_ts}. Mean score: {mean_score:.4f}"
+            print("[ALERT] " + msg)
+            send_slack_alert(msg)
+            send_email_alert("Anomaly Alert", msg)
 
     # TEMPORARY MANUAL ALERT TEST (remove after confirming)
     # send_slack_alert("✅ Test: Slack alert works!")
@@ -109,19 +112,28 @@ def run_monitoring(reference_ts: str, current_ts: str):
 
 def main():
     # === Find All Timestamps ===
-    files = glob("data/features/actor_features_*.parquet")
+    pattern = r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet"
     timestamps = []
 
-    for f in files:
-        match = re.search(r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet", f)
-        if match:
-            timestamps.append(match.group(1))
+    if is_s3_enabled():
+        fs = s3fs.S3FileSystem()
+        files = fs.ls(f"{bucket_name}/features/")
+        for f in files:
+            if "actor_features" in f:
+                match = re.search(pattern, f)
+                if match:
+                    timestamps.append(match.group(1))
+    else:
+        files = glob("data/features/actor_features_*.parquet")
+        for f in files:
+            match = re.search(pattern, f)
+            if match:
+                timestamps.append(match.group(1))
 
     timestamps = sorted(timestamps)
     if len(timestamps) < 2:
         raise RuntimeError("[ERROR] Need at least 2 parquet files to compute drift.")
 
-    # === Use Latest Two Timestamps ===
     reference_ts = timestamps[-2]
     current_ts = timestamps[-1]
     print(f"[INFO] Comparing reference={reference_ts} → current={current_ts}")

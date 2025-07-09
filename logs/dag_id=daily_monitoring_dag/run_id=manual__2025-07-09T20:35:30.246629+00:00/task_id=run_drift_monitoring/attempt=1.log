@@ -1,0 +1,42 @@
+[2025-07-09T20:35:35.846+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T20:35:35.865+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring manual__2025-07-09T20:35:30.246629+00:00 [queued]>
+[2025-07-09T20:35:35.870+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_monitoring_dag.run_drift_monitoring manual__2025-07-09T20:35:30.246629+00:00 [queued]>
+[2025-07-09T20:35:35.870+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-09T20:35:35.878+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_drift_monitoring> on 2025-07-09 20:35:30.246629+00:00
+[2025-07-09T20:35:35.890+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=248) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T20:35:35.891+0000] {standard_task_runner.py:63} INFO - Started process 260 to run task
+[2025-07-09T20:35:35.890+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_monitoring_dag', 'run_drift_monitoring', 'manual__2025-07-09T20:35:30.246629+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/daily_monitoring_dag.py', '--cfg-path', '/tmp/tmp2upvrf9j']
+[2025-07-09T20:35:35.895+0000] {standard_task_runner.py:91} INFO - Job 67: Subtask run_drift_monitoring
+[2025-07-09T20:35:35.905+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T20:35:35.927+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_monitoring_dag.run_drift_monitoring manual__2025-07-09T20:35:30.246629+00:00 [running]> on host 49b9a4a3b242
+[2025-07-09T20:35:35.985+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_monitoring_dag' AIRFLOW_CTX_TASK_ID='run_drift_monitoring' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T20:35:30.246629+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T20:35:30.246629+00:00'
+[2025-07-09T20:35:35.986+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T20:35:35.996+0000] {logging_mixin.py:188} INFO - [INFO] Monitoring drift: ref=2025-07-04-15, current=2025-07-05-15
+[2025-07-09T20:35:35.996+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T20:35:35.997+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/daily_monitoring_dag.py", line 65, in run_monitoring_wrapper
+    run_monitoring(reference_ts=ref_ts, current_ts=cur_ts)
+  File "/opt/airflow/github_pipeline/monitor.py", line 49, in run_monitoring
+    raise FileNotFoundError(f"[ERROR] Reference file not found: {ref_file}")
+FileNotFoundError: [ERROR] Reference file not found: features/actor_features_2025-07-04-15.parquet
+[2025-07-09T20:35:36.104+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_monitoring_dag, task_id=run_drift_monitoring, run_id=manual__2025-07-09T20:35:30.246629+00:00, execution_date=20250709T203530, start_date=20250709T203535, end_date=20250709T203536
+[2025-07-09T20:35:36.119+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 67 for task run_drift_monitoring ([ERROR] Reference file not found: features/actor_features_2025-07-04-15.parquet; 260)
+[2025-07-09T20:35:36.144+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-09T20:35:36.159+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T20:35:36.159+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

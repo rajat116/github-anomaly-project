@@ -7,6 +7,8 @@ import argparse
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
+from github_pipeline.utils.aws_utils import write_parquet, is_s3_enabled
+from github_pipeline.utils.aws_utils import get_s3_path
 
 
 def get_latest_available_timestamp() -> str:
@@ -79,10 +81,11 @@ def run_ingestion(timestamp: str = None, max_events: int = 100_000) -> str:
     raw_path = download_gharchive_json_gz(timestamp)
     df = parse_gharchive_json_gz(raw_path, max_events=max_events)
 
-    out_dir = Path("data/processed")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{timestamp}.parquet"
-    df.to_parquet(out_path, index=False)
+    relative_path = f"processed/{timestamp}.parquet"
+    write_parquet(df, relative_path)
+    out_path = (
+        get_s3_path(relative_path) if is_s3_enabled() else f"data/{relative_path}"
+    )
 
     print(f"[INFO] Parsed {len(df)} events")
     print(f"[INFO] Saved structured data to {out_path}")

@@ -1,0 +1,52 @@
+[2025-07-09T21:38:37.482+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T21:38:37.521+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-09T21:38:33.561811+00:00 [queued]>
+[2025-07-09T21:38:37.529+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-09T21:38:33.561811+00:00 [queued]>
+[2025-07-09T21:38:37.529+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-09T21:38:37.544+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): retrain_model> on 2025-07-09 21:38:33.561811+00:00
+[2025-07-09T21:38:37.555+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T21:38:37.556+0000] {standard_task_runner.py:63} INFO - Started process 200 to run task
+[2025-07-09T21:38:37.555+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_model_retraining', 'retrain_model', 'manual__2025-07-09T21:38:33.561811+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/retraining_dag.py', '--cfg-path', '/tmp/tmp807reuvl']
+[2025-07-09T21:38:37.561+0000] {standard_task_runner.py:91} INFO - Job 105: Subtask retrain_model
+[2025-07-09T21:38:37.572+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T21:38:37.593+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_model_retraining.retrain_model manual__2025-07-09T21:38:33.561811+00:00 [running]> on host 3a9c56837fab
+[2025-07-09T21:38:37.673+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='weekly_model_retraining' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T21:38:33.561811+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T21:38:33.561811+00:00'
+[2025-07-09T21:38:37.674+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T21:38:37.702+0000] {logging_mixin.py:188} INFO - [INFO] Searching for files locally...
+[2025-07-09T21:38:37.702+0000] {logging_mixin.py:188} INFO - [INFO] Found latest timestamp: 2025-07-08-15
+[2025-07-09T21:38:37.702+0000] {logging_mixin.py:188} INFO - [INFO] Starting model training...
+[2025-07-09T21:38:38.093+0000] {logging_mixin.py:188} WARNING - 2025/07/09 21:38:38 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-07-09T21:38:38.933+0000] {logging_mixin.py:188} WARNING - 2025/07/09 21:38:38 WARNING mlflow.models.model: `artifact_path` is deprecated. Please use `name` instead.
+[2025-07-09T21:38:43.579+0000] {logging_mixin.py:188} WARNING - 2025/07/09 21:38:43 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+[2025-07-09T21:38:43.712+0000] {logging_mixin.py:188} WARNING - Registered model 'github-anomaly-isolation-forest' already exists. Creating a new version of this model...
+[2025-07-09T21:38:43.780+0000] {logging_mixin.py:188} WARNING - 2025/07/09 21:38:43 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: github-anomaly-isolation-forest, version 8
+[2025-07-09T21:38:43.780+0000] {logging_mixin.py:188} WARNING - Created version '8' of model 'github-anomaly-isolation-forest'.
+[2025-07-09T21:38:43.837+0000] {logging_mixin.py:188} INFO -          actor  anomaly_score  anomaly
+0   0-Luminous       0.279065    False
+1    0-TeXaS-0      -0.020314     True
+2    0-chrollo       0.260056    False
+3  00-hidan-00       0.039763    False
+4    00-uno-00       0.107387    False
+[2025-07-09T21:38:43.848+0000] {logging_mixin.py:188} INFO - 🏃 View run powerful-shrike-575 at: http://mlflow-server:5000/#/experiments/1/runs/a3f41733dff34d59b67cde6e039421c3
+[2025-07-09T21:38:43.848+0000] {logging_mixin.py:188} INFO - 🧪 View experiment at: http://mlflow-server:5000/#/experiments/1
+[2025-07-09T21:38:43.864+0000] {logging_mixin.py:188} INFO - [INFO] Training completed successfully.
+[2025-07-09T21:38:43.865+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-09T21:38:43.865+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T21:38:43.871+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_model_retraining, task_id=retrain_model, run_id=manual__2025-07-09T21:38:33.561811+00:00, execution_date=20250709T213833, start_date=20250709T213837, end_date=20250709T213843
+[2025-07-09T21:38:43.924+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-09T21:38:43.935+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T21:38:43.936+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -2,9 +2,23 @@
 
 # === Guards ===
 
+check-env:
+	@echo "🔍 Checking required environment variables..."
+	@if ! grep -q '^USE_S3=' .env; then echo "❌ Missing USE_S3 in .env"; exit 1; fi
+	@if grep -q '^USE_S3=true' .env; then \
+		for var in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_REGION S3_BUCKET_NAME; do \
+			if ! grep -q "^$$var=" .env; then \
+				echo "❌ Missing $$var in .env (required for S3 mode)"; exit 1; \
+			fi; \
+		done \
+	fi
+	@echo "✅ .env validation passed."
+
 check-terraform:
-	@command -v terraform >/dev/null 2>&1 || \
-	{ echo >&2 "❌ Terraform is not installed. Run 'make install-terraform' first."; 
+	@command -v terraform >/dev/null 2>&1 || { \
+		echo >&2 "❌ Terraform is not installed. Run 'make install-terraform' first."; \
+		exit 1; \
+	}
 
 # --------- Configuration ---------
 PIPENV := pipenv run
@@ -55,6 +69,10 @@ create-env:
 	else \
 		echo "🔧 Creating .env template file..."; \
 		echo "AIRFLOW_UID=50000" > .env; \
+		echo "USE_S3=false" >> .env; \
+		echo "# AWS_ACCESS_KEY_ID=your_access_key" >> .env; \
+		echo "# AWS_SECRET_ACCESS_KEY=your_secret_key" >> .env; \
+		echo "# AWS_REGION=us-east-1" >> .env; \
 		echo "# SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXX/YYY/ZZZ" >> .env; \
 		echo "# ALERT_EMAIL_FROM=your_email@example.com" >> .env; \
 		echo "# ALERT_EMAIL_TO=recipient@example.com" >> .env; \
@@ -92,7 +110,7 @@ api-test:
 
 # --------- Airflow ---------
 
-airflow-up:
+airflow-up: check-env
 	docker compose up --build
 
 airflow-down:
@@ -109,12 +127,13 @@ install-terraform:
 	sudo mv terraform /usr/local/bin/ && \
 	rm terraform_1.8.2_linux_amd64.zip && \
 	echo "✅ Terraform installed successfully."; \
-	terraform -version; }
+	terraform -version; \
+	}
 
 terraform-init: check-terraform
 	cd infra && terraform init
 
-terraform-apply: check-terraform
+terraform-apply: check-env check-terraform
 	cd infra && terraform apply
 
 terraform-destroy: check-terraform

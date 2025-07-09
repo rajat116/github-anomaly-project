@@ -25,6 +25,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 - **Pre-commit + GitHub Actions** for CI/CD and code quality  
 - **Streamlit UI** for visualization  
 - **Terraform** for infrastructure-as-code provisioning (MLflow)
+- **AWS S3** for optional cloud-based storage of features, models, and predictions
 
 #### The full architecture of this GitHub anomaly detection pipeline is illustrated in the diagram below.
 
@@ -90,13 +91,41 @@ pip install -r requirements.txt
 
 ### 📄 .env Configuration (Required)
 
-Before running Airflow, you must create a `.env` file in the project root with at least this line:
+Before running Airflow, you must create a `.env` file in the project root with at least following content:
 
 ```env
 AIRFLOW_UID=50000
+USE_S3=false
 ```
 
 This is required for Docker to set correct permissions inside the Airflow containers.
+
+#### 🔄 USE_S3 Flag
+
+Set this flag to control where your pipeline reads/writes files:
+
+- USE_S3=false: All files will be stored locally (default, for development and testing)
+- USE_S3=true: Files will be written to and read from AWS S3
+
+✅ Required When USE_S3=true
+
+If you enable S3 support, also provide your AWS credentials in the .env:
+
+```bash
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret
+AWS_REGION=us-east-1
+S3_BUCKET_NAME=github-anomaly-logs
+```
+
+💡 Tip for Contributors
+
+If you're testing locally or don't have AWS credentials, just keep:
+
+```bash
+USE_S3=false
+```
+This will disable all cloud storage usage and allow you to run the full pipeline locally.
 
 #### Optional (For Email & Slack Alerts)
 
@@ -409,7 +438,7 @@ make lint
 
 ```bash
 make install # Install all dependencies via Pipenv (both runtime and dev)
-make create-env   # Create .env file with required AIRFLOW_UID and alert config placeholders
+make create-env   # Create .env file with AIRFLOW_UID, alert placeholders, and S3 support flag
 make clean # Remove all __pycache__ folders and .pyc files
 ```
 

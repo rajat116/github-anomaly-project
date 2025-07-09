@@ -1,0 +1,66 @@
+[2025-07-09T18:20:26.915+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T18:20:26.935+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_model_inference manual__2025-07-09T18:20:10.259037+00:00 [queued]>
+[2025-07-09T18:20:26.941+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_model_inference manual__2025-07-09T18:20:10.259037+00:00 [queued]>
+[2025-07-09T18:20:26.941+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-09T18:20:26.950+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_model_inference> on 2025-07-09 18:20:10.259037+00:00
+[2025-07-09T18:20:26.959+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=240) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T18:20:26.960+0000] {standard_task_runner.py:63} INFO - Started process 243 to run task
+[2025-07-09T18:20:26.959+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_model_inference', 'manual__2025-07-09T18:20:10.259037+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/daily_github_inference.py', '--cfg-path', '/tmp/tmpwj6pvmw1']
+[2025-07-09T18:20:26.962+0000] {standard_task_runner.py:91} INFO - Job 39: Subtask run_model_inference
+[2025-07-09T18:20:26.973+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T18:20:26.995+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_model_inference manual__2025-07-09T18:20:10.259037+00:00 [running]> on host 49b9a4a3b242
+[2025-07-09T18:20:27.055+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_model_inference' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T18:20:10.259037+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T18:20:10.259037+00:00'
+[2025-07-09T18:20:27.056+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T18:20:27.066+0000] {logging_mixin.py:188} INFO - [INFO] Running inference for timestamp: 2025-07-08-15
+[2025-07-09T18:20:27.115+0000] {credentials.py:567} INFO - Found credentials in environment variables.
+[2025-07-09T18:20:28.434+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T18:20:28.435+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/daily_github_inference.py", line 45, in run_inference_wrapper
+    run_inference(timestamp=ts)
+  File "/opt/airflow/github_pipeline/inference.py", line 46, in run_inference
+    scaler, model = load_pickle("isolation_forest.pkl")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/github_pipeline/utils/aws_utils.py", line 57, in load_pickle
+    with fs.open(path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/spec.py", line 1338, in open
+    f = self._open(
+        ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/s3fs/core.py", line 720, in _open
+    return S3File(
+           ^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/s3fs/core.py", line 2257, in __init__
+    super().__init__(
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/spec.py", line 1912, in __init__
+    self.size = self.details["size"]
+                ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/spec.py", line 1925, in details
+    self._details = self.fs.info(self.path)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/asyn.py", line 118, in wrapper
+    return sync(self.loop, func, *args, **kwargs)
+                ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/fsspec/asyn.py", line 340, in loop
+    raise RuntimeError("This class is not fork-safe")
+RuntimeError: This class is not fork-safe
+[2025-07-09T18:20:28.484+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_github_inference, task_id=run_model_inference, run_id=manual__2025-07-09T18:20:10.259037+00:00, execution_date=20250709T182010, start_date=20250709T182026, end_date=20250709T182028
+[2025-07-09T18:20:28.520+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 39 for task run_model_inference (This class is not fork-safe; 243)
+[2025-07-09T18:20:28.542+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-09T18:20:28.566+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T18:20:28.568+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,11 +1,13 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from github_pipeline.utils.aws_utils import is_s3_enabled, bucket_name
 from datetime import datetime, timedelta
 from monitor import run_monitoring
 from pathlib import Path
 import re
 from glob import glob
 import sys
+import s3fs
 
 """
 DAG: daily_monitoring_dag
@@ -33,19 +35,26 @@ default_args = {
 def get_two_latest_timestamps():
     """
     Get the two latest available feature timestamps.
+    Supports both local and S3.
     Returns: (reference_ts, current_ts)
     """
-    files = glob("data/features/actor_features_*.parquet")
     timestamps = []
+    pattern = r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet"
 
-    if not files:
-        print("[ERROR] No feature parquet files found in data/features/")
-        raise RuntimeError("Drift monitoring requires at least 2 feature files.")
-
-    for file in files:
-        match = re.search(r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet", file)
-        if match:
-            timestamps.append(match.group(1))
+    if is_s3_enabled():
+        fs = s3fs.S3FileSystem()
+        files = fs.ls(f"{bucket_name}/features/")
+        for file in files:
+            if "actor_features" in file:
+                match = re.search(pattern, file)
+                if match:
+                    timestamps.append(match.group(1))
+    else:
+        files = glob("data/features/actor_features_*.parquet")
+        for file in files:
+            match = re.search(pattern, file)
+            if match:
+                timestamps.append(match.group(1))
 
     timestamps = sorted(timestamps)
     if len(timestamps) < 2:

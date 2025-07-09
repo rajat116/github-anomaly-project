@@ -1,0 +1,28 @@
+[2025-07-09T21:19:06.711+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-09T21:19:06.730+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_github_inference.run_feature_engineering manual__2025-07-09T21:18:58.559704+00:00 [queued]>
+[2025-07-09T21:19:06.735+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_github_inference.run_feature_engineering manual__2025-07-09T21:18:58.559704+00:00 [queued]>
+[2025-07-09T21:19:06.735+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-09T21:19:06.743+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_feature_engineering> on 2025-07-09 21:18:58.559704+00:00
+[2025-07-09T21:19:06.752+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-09T21:19:06.753+0000] {standard_task_runner.py:63} INFO - Started process 205 to run task
+[2025-07-09T21:19:06.754+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'daily_github_inference', 'run_feature_engineering', 'manual__2025-07-09T21:18:58.559704+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/daily_github_inference.py', '--cfg-path', '/tmp/tmpgkkt1dei']
+[2025-07-09T21:19:06.756+0000] {standard_task_runner.py:91} INFO - Job 99: Subtask run_feature_engineering
+[2025-07-09T21:19:06.766+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-07-09T21:19:06.788+0000] {task_command.py:426} INFO - Running <TaskInstance: daily_github_inference.run_feature_engineering manual__2025-07-09T21:18:58.559704+00:00 [running]> on host 6f7c25b7640a
+[2025-07-09T21:19:06.854+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rajat' AIRFLOW_CTX_DAG_ID='daily_github_inference' AIRFLOW_CTX_TASK_ID='run_feature_engineering' AIRFLOW_CTX_EXECUTION_DATE='2025-07-09T21:18:58.559704+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-09T21:18:58.559704+00:00'
+[2025-07-09T21:19:06.855+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-09T21:19:08.585+0000] {logging_mixin.py:188} INFO - [INFO] Saved engineered features to: local → features/actor_features_2025-07-08-15.parquet
+[2025-07-09T21:19:08.605+0000] {logging_mixin.py:188} INFO -          actor            timestamp_hour  ...  fork_count  repo_diversity
+0   0-Luminous 2025-07-08 15:00:00+00:00  ...           0               1
+1    0-TeXaS-0 2025-07-08 15:00:00+00:00  ...           0               2
+2    0-chrollo 2025-07-08 15:00:00+00:00  ...           0               1
+3  00-hidan-00 2025-07-08 15:00:00+00:00  ...           0               1
+4    00-uno-00 2025-07-08 15:00:00+00:00  ...           0               1
+
+[5 rows x 7 columns]
+[2025-07-09T21:19:08.606+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-09T21:19:08.607+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-09T21:19:08.620+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=daily_github_inference, task_id=run_feature_engineering, run_id=manual__2025-07-09T21:18:58.559704+00:00, execution_date=20250709T211858, start_date=20250709T211906, end_date=20250709T211908
+[2025-07-09T21:19:08.705+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-09T21:19:08.754+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-09T21:19:08.756+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

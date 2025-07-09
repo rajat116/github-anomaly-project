@@ -1,14 +1,21 @@
 # github_pipeline/train_model.py
 
 import argparse
-import pandas as pd
-import joblib
 import mlflow
 from pathlib import Path
 from glob import glob
+import joblib
 import re
+import tempfile
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
+from github_pipeline.utils.aws_utils import (
+    read_parquet,
+    write_parquet,
+    save_pickle,
+    bucket_name,
+    is_s3_enabled,
+)
 
 
 def run_training(timestamp: str):
@@ -30,19 +37,15 @@ def run_training(timestamp: str):
 
     print("[INFO] Starting model training...")
 
-    input_file = f"data/features/actor_features_{timestamp}.parquet"
-    output_file = f"data/features/actor_predictions_{timestamp}.parquet"
-    model_dir = Path("models")
-    model_dir.mkdir(exist_ok=True)
-    model_file = model_dir / "isolation_forest.pkl"
+    input_file = f"features/actor_features_{timestamp}.parquet"
+    output_file = f"features/actor_predictions_{timestamp}.parquet"
+    model_file = "isolation_forest.pkl"
+
     experiment_name = "anomaly_detection_github"
     registered_model_name = "github-anomaly-isolation-forest"
 
-    if not Path(input_file).exists():
-        raise FileNotFoundError(f"[ERROR] Input file not found: {input_file}")
-
     # Load features
-    df = pd.read_parquet(input_file)
+    df = read_parquet(input_file)
     features = [
         "event_count",
         "pr_count",
@@ -82,8 +85,15 @@ def run_training(timestamp: str):
         mlflow.log_metric("anomaly_rate", anomaly_rate)
 
         # Save model and scaler
-        joblib.dump((scaler, model), model_file)
-        mlflow.log_artifact(str(model_file))
+        save_pickle((scaler, model), model_file)
+        # For MLflow: save temporary local copy
+        if is_s3_enabled():
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".pkl") as tmp_model:
+                joblib.dump((scaler, model), tmp_model)
+                mlflow.log_artifact(tmp_model.name)
+        else:
+            mlflow.log_artifact(f"models/{model_file}")
 
         # Also log model to registry
         mlflow.sklearn.log_model(
@@ -91,12 +101,25 @@ def run_training(timestamp: str):
         )
 
         # Save timestamp of training
+        model_dir = Path("models")
+        model_dir.mkdir(parents=True, exist_ok=True)
         with open(model_dir / "last_trained.txt", "w") as f:
             f.write(timestamp)
 
         # Save predictions
-        df.to_parquet(output_file, index=False)
-        mlflow.log_artifact(str(output_file))
+        write_parquet(df, output_file)
+
+        # For MLflow: save temporary local copy
+        if is_s3_enabled():
+            import tempfile
+
+            with tempfile.NamedTemporaryFile(
+                delete=False, suffix=".parquet"
+            ) as tmp_pred:
+                df.to_parquet(tmp_pred.name, index=False)
+                mlflow.log_artifact(tmp_pred.name)
+        else:
+            mlflow.log_artifact(f"data/{output_file}")
 
         print(df[["actor", "anomaly_score", "anomaly"]].head())
 
@@ -104,20 +127,33 @@ def run_training(timestamp: str):
 
 
 def main():
-    # Automatically detect latest timestamp
-    files = glob("data/features/actor_features_*.parquet")
-    if not files:
-        raise FileNotFoundError("[ERROR] No actor feature parquet files found.")
-
-    # Extract timestamps
+    """
+    Automatically detect the latest available timestamp and run training.
+    Supports both local and S3.
+    """
+    pattern = r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet"
     timestamps = []
-    for f in files:
-        match = re.search(r"actor_features_(\d{4}-\d{2}-\d{2}-\d{2})\.parquet", f)
-        if match:
-            timestamps.append(match.group(1))
+
+    if is_s3_enabled():
+        import s3fs
+
+        fs = s3fs.S3FileSystem()
+        files = fs.ls(f"{bucket_name}/features/")
+        print("[INFO] Searching for files on S3...")
+        for f in files:
+            match = re.search(pattern, f)
+            if match:
+                timestamps.append(match.group(1))
+    else:
+        print("[INFO] Searching for files locally...")
+        files = glob("data/features/actor_features_*.parquet")
+        for f in files:
+            match = re.search(pattern, f)
+            if match:
+                timestamps.append(match.group(1))
 
     if not timestamps:
-        raise RuntimeError("[ERROR] No valid timestamps parsed from filenames.")
+        raise RuntimeError("[ERROR] No valid feature files found.")
 
     latest_ts = sorted(timestamps)[-1]
     print(f"[INFO] Found latest timestamp: {latest_ts}")
