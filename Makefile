@@ -42,6 +42,9 @@ help:
 	@echo "  docker-run     Run FastAPI container"
 	@echo "  api-test       Send test POST request to API"
 	@echo ""
+	@echo "Streamlit:"
+	@echo "  streamlit      Launch the Streamlit dashboard"
+	@echo ""
 	@echo "Airflow:"
 	@echo "  airflow-up     Start Airflow core services"
 	@echo "  airflow-down   Stop all Airflow services"
@@ -141,6 +144,11 @@ terraform-destroy: check-terraform
 
 terraform-status: check-terraform
 	cd infra && terraform show
+
+# --------- Streamlit App ---------
+
+streamlit:
+	$(PIPENV) streamlit run streamlit_app.py
 
 # --------- Utility ---------
 

@@ -67,7 +67,7 @@ See full Makefile usage [here](#makefile-usage) — from setup to linting, testi
 ├── Makefile                 ← Task automation: setup, test, Airflow, Terraform, etc.
 ├── requirements.txt         ← Python dependencies for Airflow containers
 ├── Pipfile / Pipfile.lock   ← Python project environment (via Pipenv)
-├── .env                     ← Environment variables (Slack, Email, Airflow UID)
+├── .env                     ← Environment variables (Slack, Email, Airflow UID, S3 support flag)
 └── README.md                ← 📘 You are here
 ```
 
@@ -449,6 +449,12 @@ make format # Format code using Black
 make lint # Lint code using Flake8
 make test # Run tests using Pytest
 make check # Run all of the above together
+```
+
+### 📊 Streamlit Dashboard
+
+```bash
+make streamlit  # Launch the Streamlit dashboard at http://localhost:8501
 ```
 
 #### 🐳 FastAPI Inference App
