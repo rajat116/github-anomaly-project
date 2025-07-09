@@ -39,6 +39,11 @@ def test_run_feature_engineering(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
 
     # ----------------------------
+    # Step 3.5: Disable S3 for test
+    # ----------------------------
+    monkeypatch.setenv("USE_S3", "false")
+
+    # ----------------------------
     # Step 4: Run the function
     # ----------------------------
     run_feature_engineering(timestamp)
