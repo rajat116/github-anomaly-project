@@ -2,6 +2,7 @@
 
 # 🛠️ GitHub Anomaly Detection Pipeline
 
+<span id="motivation"></span>
 ## 💡 Motivation & Use Case
 
 GitHub hosts an enormous amount of user activity, including pull requests, issues, forks, and stars. Monitoring this activity in real-time is essential for identifying unusual or malicious behavior — such as bots, misuse, or suspicious spikes in contributions. 
@@ -33,6 +34,10 @@ A production-grade anomaly detection system for GitHub user behavior using:
 
 ---
 
+A quick [guide](#evaluator-guide) for evaluators to verify all requirements and navigate the implementation easily.
+
+---
+
 ## 🤖 Too lazy for copy-pasting commands?
 
 If you're like me and hate typing out commands... good news!  
@@ -44,6 +49,7 @@ make help
 
 See full Makefile usage [here](#makefile-usage) — from setup to linting, testing, API, Airflow, and Terraform infra!
 
+<span id="project-structure"></span>
 ## 📦 Project Structure
 
 ```java
@@ -72,7 +78,7 @@ See full Makefile usage [here](#makefile-usage) — from setup to linting, testi
 ```
 
 ---
-
+<span id="setup-instructions"></span>
 ## ⚙️ Setup Instructions
 
 ### 1. Clone and install dependencies
@@ -89,6 +95,7 @@ pipenv shell
 pip install -r requirements.txt
 ```
 
+<span id="env-config"></span>
 ### 📄 .env Configuration (Required)
 
 Before running Airflow, you must create a `.env` file in the project root with at least following content:
@@ -163,12 +170,14 @@ Once up, access:
 - Airflow UI: http://localhost:8080 (Login: airflow / airflow)
 - MLflow UI: http://localhost:5000
 
+<span id="airflow-dag"></span>
 #### ⏱️ 2. Airflow DAGs Overview
 
 - daily_github_inference: Download → Feature Engineering → Inference
 - daily_monitoring_dag: Drift checks, cleanup, alerting
 - retraining_dag: Triggers model training weekly and logs it to MLflow
 
+<span id="mlflow"></span>
 #### 📈 3. MLflow Experiment Tracking
 
 Model training is handled by:
@@ -215,6 +224,7 @@ python github_pipeline/train_model.py
 ```
 The latest parquet file is used automatically. Model and scaler are saved to models/.
 
+<span id="fastapi"></span>
 ### 4. 🚀 FastAPI Inference
 
 #### Build & Run
@@ -232,6 +242,7 @@ curl -X POST http://localhost:8000/predict \
      -d '{"features": [12, 0, 1, 0, 4]}'
 ```
 
+<span id="alerts"></span>
 ### 5. 📣 Alerts: Email & Slack
 
 This project includes automated alerting mechanisms for anomaly spikes and data drift, integrated into the daily_monitoring_dag DAG.
@@ -273,6 +284,7 @@ alerts/alerting.py
 
 These generate alert messages and send them through email and Slack if thresholds are breached.
 
+<span id="ci_cd"></span>
 ### 6. ✅ CI/CD with GitHub Actions
 
 The .github/workflows/ci.yml file runs on push:
@@ -296,6 +308,7 @@ Configured via:
 - .pre-commit-config.yaml
 - .flake8 (ignore = E501)
 
+<span id="testing"></span>
 ### 8. 🧪 Testing
 
 This project includes both unit tests and a full integration test to ensure end-to-end pipeline functionality.
@@ -453,6 +466,7 @@ make create-env   # Create .env file with AIRFLOW_UID, alert placeholders, and S
 make clean # Remove all __pycache__ folders and .pyc files
 ```
 
+<span id="code-quality"></span>
 #### 🧪 Code Quality & Testing
 
 ```bash
@@ -511,4 +525,46 @@ make help # Prints a summary of all available targets and their descriptions.
 Built by Rajat Gupta as part of an MLOps portfolio.
 Inspired by real-time event pipelines and anomaly detection architectures used in production.
 
-### 14. 📝 License
+### 15. 📝 License
+
+<span id="evaluator-guide"></span>
+### ✅ Evaluation Criteria for MLOps Zoomcamp
+
+Each criterion below links to the relevant section of this README to help evaluators verify the implementation easily.
+
+#### 🧠 Problem Description — 2 points
+
+✅ The project clearly defines the problem of detecting anomalous GitHub activity using real-time machine learning. See [here](#motivation)
+
+#### ☁️ Cloud — 4 points
+
+✅ The project runs in GitHub Codespaces and supports AWS S3 with a USE_S3 toggle. See [here](#env-config)
+
+#### 📈 Experiment Tracking & Model Registry — 4 points
+
+✅ MLflow is fully integrated to track experiments and register models. See [here](#mlflow)
+
+#### 🛠️ Workflow Orchestration — 4 points
+
+✅ Uses Apache Airflow with 3 deployed DAGs for inference, monitoring, and retraining. See [here](#airflow-dag)
+
+#### 🚀 Model Deployment — 4 points
+
+✅ Model is served via FastAPI and fully containerized for deployment. See [here](#fast-api)
+
+#### 📊 Model Monitoring — 4 points
+
+✅ Implements drift detection, anomaly thresholding, and sends alerts via Slack and Email. See [here](#alerts)
+
+#### ♻️ Reproducibility — 4 points
+
+✅ The project is fully reproducible with clear instructions, dependency locking, and data structure. See [here](#setup)
+
+#### ✅ Best Practices — 7 points
+
+- **Unit tests**: Pytest-based unit tests on core components. See [here](#testing)
+- **Integration test**: Full integration test to validate the entire pipeline. See [here](#testing)
+- **Linter & Code formatter**: Uses Black and Flake8 with Makefile targets and pre-commit hooks. See [here](#code-quality)
+- **Makefile**: Includes targets for install, lint, test, format, build, and airflow. See [here](#makefile-usage)
+- **Pre-commit hooks**: Automatically formats and checks code before commits. See [here](#code-quality)
+- **CI/CD pipeline**: GitHub Actions run tests, lint, and build containers on push. See [here](#ci_cd)
