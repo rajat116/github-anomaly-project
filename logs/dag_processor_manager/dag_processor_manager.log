@@ -9462,3 +9462,228 @@ File Path                                    PID    Runtime      # DAGs    # Err
 /opt/airflow/dags/daily_github_inference.py                           1           0  0.63s           2025-07-09T21:39:19
 ================================================================================
 [2025-07-09T21:39:54.519+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-07-11T20:17:40.356+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-11T20:17:40.400+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-11T20:17:40.401+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-11T20:17:40.401+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-11T20:17:40.404+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2025-07-11T20:17:40.677+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/retraining_dag.py                                   0           0
+/opt/airflow/dags/daily_github_inference.py    159  0.07s             0           0
+/opt/airflow/dags/daily_monitoring_dag.py      157  0.07s             0           0
+================================================================================
+[2025-07-11T20:18:11.143+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/daily_monitoring_dag.py exited with return code 1.
+[2025-07-11T20:18:11.199+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             0          -1  30.54s          2025-07-11T20:18:11
+/opt/airflow/dags/retraining_dag.py                                   1           0  17.37s          2025-07-11T20:18:07
+/opt/airflow/dags/daily_github_inference.py                           1           0  9.48s           2025-07-11T20:17:50
+================================================================================
+[2025-07-11T20:18:41.541+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py      233  0.00s             0          -1  30.54s          2025-07-11T20:18:11
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.92s           2025-07-11T20:18:39
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.57s           2025-07-11T20:18:20
+================================================================================
+[2025-07-11T20:19:12.194+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  4.19s           2025-07-11T20:18:45
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.66s           2025-07-11T20:19:11
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.55s           2025-07-11T20:18:52
+================================================================================
+[2025-07-11T20:19:42.610+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.32s           2025-07-11T20:19:19
+/opt/airflow/dags/retraining_dag.py            266  1.01s             1           0  1.66s           2025-07-11T20:19:11
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.55s           2025-07-11T20:19:23
+================================================================================
+[2025-07-11T20:20:12.959+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.39s           2025-07-11T20:19:53
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.55s           2025-07-11T20:19:43
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.72s           2025-07-11T20:19:53
+================================================================================
+[2025-07-11T20:20:43.272+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/retraining_dag.py                                   1           0  3.91s           2025-07-11T20:20:17
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.84s           2025-07-11T20:20:27
+/opt/airflow/dags/daily_github_inference.py                           1           0  1.15s           2025-07-11T20:20:25
+================================================================================
+[2025-07-11T20:21:14.132+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.18s           2025-07-11T20:21:01
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.64s           2025-07-11T20:20:49
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.58s           2025-07-11T20:20:56
+================================================================================
+[2025-07-11T20:21:44.889+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.14s           2025-07-11T20:21:34
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.53s           2025-07-11T20:21:21
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.60s           2025-07-11T20:21:26
+================================================================================
+[2025-07-11T20:22:15.589+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.26s           2025-07-11T20:22:08
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.58s           2025-07-11T20:21:53
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.60s           2025-07-11T20:21:57
+================================================================================
+[2025-07-11T20:22:40.520+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-11T20:22:40.528+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2025-07-11T20:22:45.616+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.33s           2025-07-11T20:22:42
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.61s           2025-07-11T20:22:25
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.62s           2025-07-11T20:22:28
+================================================================================
+[2025-07-11T20:23:16.273+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py      413  3.02s             1           0  3.33s           2025-07-11T20:22:42
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.61s           2025-07-11T20:22:57
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.61s           2025-07-11T20:22:59
+================================================================================
+[2025-07-11T20:23:46.996+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py      445  0.00s             1           0  3.21s           2025-07-11T20:23:16
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.53s           2025-07-11T20:23:28
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.54s           2025-07-11T20:23:30
+================================================================================
+[2025-07-11T20:24:17.131+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.18s           2025-07-11T20:23:50
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.97s           2025-07-11T20:24:01
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.92s           2025-07-11T20:24:01
+================================================================================
+[2025-07-11T20:24:47.134+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.11s           2025-07-11T20:24:23
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.88s           2025-07-11T20:24:33
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.80s           2025-07-11T20:24:32
+================================================================================
+[2025-07-11T20:24:49.945+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-07-11T20:27:28.683+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-11T20:27:28.736+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-11T20:27:28.737+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-11T20:27:28.738+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-11T20:27:28.747+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2025-07-11T20:27:28.919+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/retraining_dag.py                                   0           0
+/opt/airflow/dags/daily_github_inference.py    160  0.06s             0           0
+/opt/airflow/dags/daily_monitoring_dag.py      157  0.08s             0           0
+================================================================================
+[2025-07-11T20:27:58.978+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  11.37s          2025-07-11T20:27:40
+/opt/airflow/dags/retraining_dag.py                                   1           0  5.20s           2025-07-11T20:27:38
+/opt/airflow/dags/daily_github_inference.py                           1           0  4.80s           2025-07-11T20:27:33
+================================================================================
+[2025-07-11T20:28:29.542+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  7.19s           2025-07-11T20:28:17
+/opt/airflow/dags/retraining_dag.py                                   1           0  5.73s           2025-07-11T20:28:14
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.99s           2025-07-11T20:28:04
+================================================================================
+[2025-07-11T20:28:59.941+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  8.42s           2025-07-11T20:28:56
+/opt/airflow/dags/retraining_dag.py                                   1           0  2.92s           2025-07-11T20:28:47
+/opt/airflow/dags/daily_github_inference.py                           1           0  1.22s           2025-07-11T20:28:36
+================================================================================
+[2025-07-11T20:29:30.041+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py                             1           0  3.35s           2025-07-11T20:29:30
+/opt/airflow/dags/daily_github_inference.py                           1           0  1.65s           2025-07-11T20:29:08
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.56s           2025-07-11T20:29:19
+================================================================================
+[2025-07-11T20:30:00.534+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/daily_monitoring_dag.py      297  0.00s             1           0  3.35s           2025-07-11T20:29:30
+/opt/airflow/dags/retraining_dag.py                                   1           0  1.63s           2025-07-11T20:29:51
+/opt/airflow/dags/daily_github_inference.py                           1           0  0.57s           2025-07-11T20:29:39
+================================================================================
+[2025-07-11T20:30:05.025+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15

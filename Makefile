@@ -34,7 +34,7 @@ help:
 	@echo "Code Quality:"
 	@echo "  format         Format code using Black"
 	@echo "  lint           Lint code using Flake8"
-	@echo "  test           Run tests using pytest"
+	@echo "  test           Run all tests using pytest (unit + integration tests)""
 	@echo "  check          Run format, lint, and test together"
 	@echo ""
 	@echo "Docker & FastAPI:"

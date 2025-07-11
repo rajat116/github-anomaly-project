@@ -298,17 +298,28 @@ Configured via:
 
 ### 8. 🧪 Testing
 
+This project includes both unit tests and a full integration test to ensure end-to-end pipeline functionality.
+
 Run all tests:
 
 ```bash
 PYTHONPATH=. pytest
 ```
 
-Tests are in tests/ and cover:
+#### All tests will automatically run under tests/ including:
+
+Unit tests for:
 
 - Inference API (serve_model.py)
-- Feature engineering
-- Model training logic
+- Feature engineering (feature_engineering.py)
+- Model training logic (train_model.py)
+
+Integration test (test_pipeline_integration.py) for:
+
+- End-to-end flow using latest available local data:
+- processed → feature engineering → model inference
+
+💡 These tests are also automatically run via pre-commit and GitHub Actions.
 
 ### 9. 📊 Streamlit Dashboard
 

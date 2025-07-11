@@ -87,3 +87,8 @@ if __name__ == "__main__":
         run_inference(args.timestamp)
     else:
         main()
+
+
+def run_batch_inference():
+    """Wrapper used by integration tests to run inference on latest available file."""
+    main()
