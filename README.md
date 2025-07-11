@@ -534,31 +534,31 @@ Each criterion below links to the relevant section of this README to help evalua
 
 #### 🧠 Problem Description — 2 points
 
-✅ The project clearly defines the problem of detecting anomalous GitHub activity using real-time machine learning. See [here](#motivation)
+The project clearly defines the problem of detecting anomalous GitHub activity using real-time machine learning. See [here](#motivation)
 
 #### ☁️ Cloud — 4 points
 
-✅ The project runs in GitHub Codespaces and supports AWS S3 with a USE_S3 toggle. See [here](#env-config)
+The project runs in GitHub Codespaces and supports AWS S3 with a USE_S3 toggle. See [here](#env-config)
 
 #### 📈 Experiment Tracking & Model Registry — 4 points
 
-✅ MLflow is fully integrated to track experiments and register models. See [here](#mlflow)
+MLflow is fully integrated to track experiments and register models. See [here](#mlflow)
 
 #### 🛠️ Workflow Orchestration — 4 points
 
-✅ Uses Apache Airflow with 3 deployed DAGs for inference, monitoring, and retraining. See [here](#airflow-dag)
+Uses Apache Airflow with 3 deployed DAGs for inference, monitoring, and retraining. See [here](#airflow-dag)
 
 #### 🚀 Model Deployment — 4 points
 
-✅ Model is served via FastAPI and fully containerized for deployment. See [here](#fastapi)
+Model is served via FastAPI and fully containerized for deployment. See [here](#fastapi)
 
 #### 📊 Model Monitoring — 4 points
 
-✅ Implements drift detection, anomaly thresholding, and sends alerts via Slack and Email. See [here](#alerts)
+Implements drift detection, anomaly thresholding, and sends alerts via Slack and Email. See [here](#alerts)
 
 #### ♻️ Reproducibility — 4 points
 
-✅ The project is fully reproducible with clear instructions, dependency locking, and data structure. See [here](#setup-instructions)
+The project is fully reproducible with clear instructions, dependency locking, and data structure. See [here](#setup-instructions)
 
 #### ✅ Best Practices — 7 points
 
