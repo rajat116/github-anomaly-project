@@ -34,7 +34,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 
 ---
 
-### A quick [guide](#evaluator-guide) for evaluators to verify all requirements and navigate the implementation easily.
+#### A quick [guide](#evaluator-guide) for evaluators to verify all requirements and navigate the implementation easily.
 
 ---
 
@@ -550,7 +550,7 @@ Each criterion below links to the relevant section of this README to help evalua
 
 #### 🚀 Model Deployment — 4 points
 
-✅ Model is served via FastAPI and fully containerized for deployment. See [here](#fast-api)
+✅ Model is served via FastAPI and fully containerized for deployment. See [here](#fastapi)
 
 #### 📊 Model Monitoring — 4 points
 
@@ -558,7 +558,7 @@ Each criterion below links to the relevant section of this README to help evalua
 
 #### ♻️ Reproducibility — 4 points
 
-✅ The project is fully reproducible with clear instructions, dependency locking, and data structure. See [here](#setup)
+✅ The project is fully reproducible with clear instructions, dependency locking, and data structure. See [here](#setup-instructions)
 
 #### ✅ Best Practices — 7 points
 
