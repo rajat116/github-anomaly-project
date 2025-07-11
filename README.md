@@ -34,7 +34,7 @@ A production-grade anomaly detection system for GitHub user behavior using:
 
 ---
 
-A quick [guide](#evaluator-guide) for evaluators to verify all requirements and navigate the implementation easily.
+### A quick [guide](#evaluator-guide) for evaluators to verify all requirements and navigate the implementation easily.
 
 ---
 
@@ -528,7 +528,7 @@ Inspired by real-time event pipelines and anomaly detection architectures used i
 ### 15. 📝 License
 
 <span id="evaluator-guide"></span>
-### ✅ Evaluation Criteria for MLOps Zoomcamp
+### 16. ✅ Evaluation Criteria for MLOps Zoomcamp
 
 Each criterion below links to the relevant section of this README to help evaluators verify the implementation easily.
 
